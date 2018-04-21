@@ -63,8 +63,7 @@ public class GameManager : MonoBehaviour
     public Animator PlayerAnimator;
     //Animator for the current ghost
     public Animator GhostAnimator;
-
-<<<<<<< HEAD
+    
     // Monsters and SpawnPoints
     // List of spawnPoints
     public List<MonsterSpawnPoint> spawnPoints;
@@ -72,8 +71,6 @@ public class GameManager : MonoBehaviour
     public Transform monstersParent;
     // List of the spawned monsters
     private List<GameObject> monsters;
-=======
->>>>>>> ae7e258872b16f2a1b333c8569f51c86088a4658
 
 
     // Playing the turn
@@ -284,8 +281,7 @@ public class GameManager : MonoBehaviour
         // Cards initialisation
         DrawCard();
         emptyCardPlayedThisTurn = false;
-
-<<<<<<< HEAD
+        
 
 
         // Spawn some monsters
@@ -336,13 +332,13 @@ public class GameManager : MonoBehaviour
     private void EndExecTurn()
     {
         SetupPlanifTurn();
-=======
+    }
+
     private void EndTurn()
     {
         DiscardHand();
         selectedCard = null;
         GhostAnimator.SetBool("isMoving", false);
->>>>>>> ae7e258872b16f2a1b333c8569f51c86088a4658
     }
 
     private void DiscardHand()

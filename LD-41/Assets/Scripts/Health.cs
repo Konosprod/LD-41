@@ -21,14 +21,14 @@ public class Health : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        UpdateHealthBar();
+        //UpdateHealthBar();
 	}
 
-    private void UpdateHealthBar()
+    /*private void UpdateHealthBar()
     {
         //Debug.Log("hp : " + hp + ", maxHp : " + maxHp + ", value : " + hp / maxHp);
         healthBar.fillAmount = hp / maxHp;
-    }
+    }*/
 
     public void TakeDamage(int damage)
     {
@@ -44,7 +44,7 @@ public class Health : MonoBehaviour {
             }
         }
 
-        UpdateHealthBar();
+        //UpdateHealthBar();
     }
 
     public void OnTriggerEnter(Collider other)
