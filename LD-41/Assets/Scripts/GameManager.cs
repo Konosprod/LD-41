@@ -90,6 +90,13 @@ public class GameManager : MonoBehaviour
     // Current timer
     private float timerPlayCardMove = 0f;
 
+    //Panel End of game
+    public GameObject panelEndOfGame;
+    //Text score
+    public Text scoreTextPanel;
+    //Turns score
+    public Text turnScorePanel;
+
     private bool canAct = true;
 
     void Awake()
@@ -485,6 +492,9 @@ public class GameManager : MonoBehaviour
             if(win)
             {
                 isOver = true;
+                scoreTextPanel.text = score.ToString();
+                turnScorePanel.text = score.ToString();
+                panelEndOfGame.SetActive(true);
             }
         }
     }
@@ -513,6 +523,9 @@ public class GameManager : MonoBehaviour
     public void Lose()
     {
         gameOver = true;
+        scoreTextPanel.text = score.ToString();
+        turnScorePanel.text = score.ToString();
+        panelEndOfGame.SetActive(true);
     }
 
     public void ExecuteCard()
