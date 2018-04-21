@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
                     timer = 0f;
                     UpdateTimerText();
                     isPlanifTurn = false;
-                    EndTurn();
+                    EndPlanifTurn();
                 }
                 else
                 {
@@ -337,13 +337,22 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        foreach(GameObject ghost in playerGhosts)
+        GameObject[] delGhosts = new GameObject[playerGhosts.Count];
+        int i = 0;
+        foreach (GameObject ghost in playerGhosts)
         {
-            Destroy(ghost);
+            delGhosts[i] =  ghost;
+            i++;
+        }
+        for(int j = 0; j < i; j++)
+        {
+            Destroy(delGhosts[j]);
         }
         Destroy(currentPlayerGhost);
 
         followCamera.target = player;
+
+        GhostAnimator.SetBool("isMoving", false);
 
         SetupExecTurn();
     }
@@ -356,13 +365,6 @@ public class GameManager : MonoBehaviour
     private void EndExecTurn()
     {
         SetupPlanifTurn();
-    }
-
-    private void EndTurn()
-    {
-        DiscardHand();
-        selectedCard = null;
-        GhostAnimator.SetBool("isMoving", false);
     }
 
     private void DiscardHand()
