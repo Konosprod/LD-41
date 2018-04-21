@@ -200,7 +200,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4909880069572960}
   - component: {fileID: 137142887152821030}
-  - component: {fileID: 114278272175402876}
   m_Layer: 0
   m_Name: main_cara
   m_TagString: Untagged
@@ -354,6 +353,7 @@ GameObject:
   - component: {fileID: 95673390337756256}
   - component: {fileID: 136626862481980140}
   - component: {fileID: 54981672400328636}
+  - component: {fileID: 114980111266966034}
   m_Layer: 0
   m_Name: MainChara
   m_TagString: Untagged
@@ -832,12 +832,12 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114278272175402876
+--- !u!114 &114980111266966034
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1540650313398638}
+  m_GameObject: {fileID: 1851795714732616}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1680f77931a0da428d754a1fbe71fad, type: 3}
