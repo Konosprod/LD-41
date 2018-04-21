@@ -40,12 +40,16 @@ public class Health : MonoBehaviour {
         {
             hp = 0;
             dead = true;
-            if(gameObject.layer == 9)
+            if(gameObject.layer == 9) // Monster
             {
                 animator.SetBool("isDead", true);
                 GameManager._instance.RemoveMonster(gameObject);
                 StartCoroutine(WaitForFrameToFinish());
+            }
 
+            if(gameObject.layer == 9)
+            {
+                GameManager._instance.Lose();
             }
         }
         else

@@ -497,6 +497,16 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Testb());
     }
 
+    public void HitPlayer(int damage)
+    {
+        player.GetComponent<Health>().TakeDamage(damage);
+    }
+
+    public void Lose()
+    {
+        gameOver = true;
+    }
+
     private IEnumerator Testb()
     {
         while (PlayerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)

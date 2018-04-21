@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -649,8 +649,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 0100000004000000070000000a000000
-  nbMobsPerWaves: 03000000040000000600000008000000
+  waves: 01000000
+  nbMobsPerWaves: 01000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!1 &1310707972
