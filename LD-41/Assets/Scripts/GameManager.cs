@@ -240,7 +240,7 @@ public class GameManager : MonoBehaviour
                         // We move towards the ghost's position
 
                         Vector3 diff = cardToPlay.correspondingGhostPos - player.transform.position;
-
+                        Debug.Log(diff);
                         if(diff.x > 0)
                         {
                             PlayerAnimator.SetBool("isMoving", true);
@@ -250,8 +250,8 @@ public class GameManager : MonoBehaviour
                         else if(diff.x < 0)
                         {
                             PlayerAnimator.SetBool("isMoving", true);
-                            player.transform.localEulerAngles = new Vector3(0, 90f, 0);
-                            player.transform.position -= (player.transform.forward * playerMoveSpeed);
+                            player.transform.localEulerAngles = new Vector3(0, -90f, 0);
+                            player.transform.position += (player.transform.forward * playerMoveSpeed);
                         }
 
                         if(Vector3.Distance(cardToPlay.correspondingGhostPos, player.transform.position) < 0.2)
@@ -329,7 +329,9 @@ public class GameManager : MonoBehaviour
         }
         selectedCard = null;
 
-        foreach(Card c in cardsToPlay)
+        GhostAnimator.SetBool("isMoving", false);
+
+        foreach (Card c in cardsToPlay)
         {
             if(c.effectInst != null)
             {
@@ -352,7 +354,6 @@ public class GameManager : MonoBehaviour
 
         followCamera.target = player;
 
-        GhostAnimator.SetBool("isMoving", false);
 
         SetupExecTurn();
     }
