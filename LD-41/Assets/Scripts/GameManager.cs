@@ -51,6 +51,10 @@ public class GameManager : MonoBehaviour
     // The card currently selected
     public GameObject selectedCard;
 
+    //Animator for player
+    public Animator PlayerAnimator;
+    //Animator for the current ghost
+    public Animator GhostAnimator;
 
 
     void Awake()
@@ -96,17 +100,22 @@ public class GameManager : MonoBehaviour
                 {
                     // Grab the inputs
                     float moveHorizon = Input.GetAxis("Horizontal");
-                    Debug.Log(moveHorizon);
                     if (moveHorizon > 0f)
                     {
+                        GhostAnimator.SetBool("isMoving", true);
                         currentPlayerGhost.transform.eulerAngles = new Vector3(0, 90f, 0);
                         // Debug.Log("Movement : " + moveHorizon);
                         currentPlayerGhost.transform.position += (currentPlayerGhost.transform.forward * moveHorizon * ghostSpeed);
                     }
                     else if(moveHorizon < 0f)
                     {
+                        GhostAnimator.SetBool("isMoving", true);
                         currentPlayerGhost.transform.eulerAngles = new Vector3(0, -90f, 0);
                         currentPlayerGhost.transform.position -= (currentPlayerGhost.transform.forward * moveHorizon * ghostSpeed);
+                    }
+                    else
+                    {
+                        GhostAnimator.SetBool("isMoving", false);
                     }
 
                 }
@@ -154,6 +163,7 @@ public class GameManager : MonoBehaviour
         }
         playerGhosts = new List<GameObject>();
         currentPlayerGhost = Instantiate(playerGhostPrefab, player.transform.position, player.transform.rotation);
+        GhostAnimator = currentPlayerGhost.GetComponent<Animator>();
         followCamera.SetTarget(currentPlayerGhost);
 
         // Cards initialisation
@@ -165,6 +175,7 @@ public class GameManager : MonoBehaviour
     {
         DiscardHand();
         selectedCard = null;
+        GhostAnimator.SetBool("isMoving", false);
     }
 
     private void DiscardHand()
