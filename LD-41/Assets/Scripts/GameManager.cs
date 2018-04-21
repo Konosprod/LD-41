@@ -49,16 +49,9 @@ public class GameManager : MonoBehaviour
     // The panel that holds the cards objects
     public GameObject handPanel;
     // The card currently selected
-    [HideInInspector]
     public GameObject selectedCard;
 
 
-    // Monsters and SpawnPoints
-    public List<MonsterSpawnPoint> spawnPoints;
-    // Empty object to hold all the shit we spawn
-    public Transform monstersParent;
-    // List of the spawned monsters
-    private List<GameObject> monsters;
 
     void Awake()
     {
@@ -97,16 +90,23 @@ public class GameManager : MonoBehaviour
                     timer = 0f;
                     UpdateTimerText();
                     isPlanifTurn = false;
-                    EndPlanifTurn();
+                    EndTurn();
                 }
                 else
                 {
                     // Grab the inputs
                     float moveHorizon = Input.GetAxis("Horizontal");
-                    if (moveHorizon != 0f)
+                    Debug.Log(moveHorizon);
+                    if (moveHorizon > 0f)
                     {
+                        currentPlayerGhost.transform.eulerAngles = new Vector3(0, 90f, 0);
                         // Debug.Log("Movement : " + moveHorizon);
-                        currentPlayerGhost.transform.Translate(Vector3.right * moveHorizon * ghostSpeed);
+                        currentPlayerGhost.transform.position += (currentPlayerGhost.transform.forward * moveHorizon * ghostSpeed);
+                    }
+                    else if(moveHorizon < 0f)
+                    {
+                        currentPlayerGhost.transform.eulerAngles = new Vector3(0, -90f, 0);
+                        currentPlayerGhost.transform.position -= (currentPlayerGhost.transform.forward * moveHorizon * ghostSpeed);
                     }
 
                 }
@@ -137,9 +137,6 @@ public class GameManager : MonoBehaviour
         // Cards initialisation
         cardsInHand = new List<GameObject>();
 
-        // Monster initialisation
-        monsters = new List<GameObject>();
-
         // First turn is planif ?
         SetupPlanifTurn();
     }
@@ -164,33 +161,10 @@ public class GameManager : MonoBehaviour
         selectedCard = null;
     }
 
-    private void EndPlanifTurn()
+    private void EndTurn()
     {
         DiscardHand();
         selectedCard = null;
-
-        SetupExecTurn();
-    }
-
-    private void SetupExecTurn()
-    {
-        // Spawn some monsters
-        foreach(MonsterSpawnPoint sp in spawnPoints)
-        {
-            List<GameObject> newMonsters = sp.SpawnMonsters(5);
-            foreach(GameObject mob in newMonsters)
-            {
-                monsters.Add(mob);
-                mob.transform.SetParent(monstersParent);
-            }
-        }
-    }
-
-    private void EndExecTurn()
-    {
-
-
-        SetupPlanifTurn();
     }
 
     private void DiscardHand()

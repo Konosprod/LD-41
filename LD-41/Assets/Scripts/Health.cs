@@ -8,12 +8,13 @@ public class Health : MonoBehaviour {
     public int maxHp = 100;
     private int hp;
 
-    public Slider healthBar;
+    public Image healthBar;
 
     public bool dead = false;
 
 	// Use this for initialization
 	void Start () {
+        healthBar = GameObject.Find("HealthBar").GetComponentsInChildren<Image>()[1];
         hp = maxHp;
 	}
 	
@@ -25,7 +26,7 @@ public class Health : MonoBehaviour {
     private void UpdateHealthBar()
     {
         //Debug.Log("hp : " + hp + ", maxHp : " + maxHp + ", value : " + hp / maxHp);
-        healthBar.value = hp / maxHp;
+        healthBar.fillAmount = hp / maxHp;
     }
 
     public void TakeDamage(int damage)
