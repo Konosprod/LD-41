@@ -44,5 +44,12 @@ public class DeathSlashX2 : Card {
     public override void Do()
     {
         effectInst = Instantiate(effect, GameManager._instance.GetPlayerPosition() + effectPosOffset, Quaternion.identity);
+        StartCoroutine(SelfDestroy());
+    }
+
+    IEnumerator SelfDestroy()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(effectInst);
     }
 }

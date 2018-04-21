@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
         timer = turnTimer;
         playerGhosts = new List<GameObject>();
         cardsToPlay = new List<Card>();
+        monsters = new List<GameObject>();
 
         StartGame();
     }
@@ -194,6 +195,8 @@ public class GameManager : MonoBehaviour
                         cardsToPlay.Add(emptyCard);
                         playerGhosts.Add(currentPlayerGhost);
                         currentPlayerGhost = Instantiate(playerGhostPrefab, currentPlayerGhost.transform.position, currentPlayerGhost.transform.rotation);
+                        GhostAnimator.SetBool("isMoving", false);
+                        GhostAnimator = currentPlayerGhost.GetComponent<Animator>();
                         followCamera.SetTarget(currentPlayerGhost);
                     }
                 }
@@ -240,7 +243,7 @@ public class GameManager : MonoBehaviour
                         // We move towards the ghost's position
 
                         Vector3 diff = cardToPlay.correspondingGhostPos - player.transform.position;
-                        Debug.Log(diff);
+                        // Debug.Log(diff);
                         if(diff.x > 0)
                         {
                             PlayerAnimator.SetBool("isMoving", true);
