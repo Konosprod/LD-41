@@ -42,9 +42,8 @@ public class Health : MonoBehaviour {
             dead = true;
             if(gameObject.layer == 9)
             {
-                animator.SetTrigger("isDead");
-                //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).length);
-                StartCoroutine(OnDeath(animator.GetCurrentAnimatorStateInfo(0).length));
+                animator.SetBool("isDead", true);
+                StartCoroutine(WaitForFrameToFinish());
             }
         }
         else
@@ -53,6 +52,12 @@ public class Health : MonoBehaviour {
         }
 
         UpdateHealthBar();
+    }
+
+    private IEnumerator WaitForFrameToFinish()
+    {
+        yield return new WaitForEndOfFrame();
+        StartCoroutine(OnDeath(animator.GetCurrentAnimatorStateInfo(0).length));
     }
 
     private IEnumerator OnDeath(float time)

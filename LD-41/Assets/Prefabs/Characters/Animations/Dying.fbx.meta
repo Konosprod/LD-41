@@ -57,7 +57,7 @@ ModelImporter:
     400046: mixamorig:Spine
     400048: mixamorig:Spine1
     400050: mixamorig:Spine2
-    7400000: Dyning
+    7400000: Dying
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -87,7 +87,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Dyning
+      name: Dying
       takeName: mixamo.com
       firstFrame: 0
       lastFrame: 345
