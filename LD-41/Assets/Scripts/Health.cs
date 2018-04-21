@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Collider))]
 public class Health : MonoBehaviour {
 
-    public int maxHp = 100;
-    private int hp;
+    public float maxHp = 100;
+    public float hp;
 
     public Slider healthBar;
 
@@ -36,8 +37,21 @@ public class Health : MonoBehaviour {
         {
             hp = 0;
             dead = true;
+            if(gameObject.layer == 9)
+            {
+                Destroy(gameObject);
+            }
         }
 
         UpdateHealthBar();
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        //Debug.Log(gameObject.name);
+        if(GameManager._instance.isPlayTurn() && gameObject.layer == 9) // 9 = monster
+        {
+            TakeDamage(other.gameObject.GetComponent<Damage>().damage);
+        }
     }
 }
