@@ -493,7 +493,7 @@ public class GameManager : MonoBehaviour
             {
                 isOver = true;
                 scoreTextPanel.text = score.ToString();
-                turnScorePanel.text = score.ToString();
+                turnScorePanel.text = turn.ToString();
                 panelEndOfGame.SetActive(true);
             }
         }
@@ -524,7 +524,7 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         scoreTextPanel.text = score.ToString();
-        turnScorePanel.text = score.ToString();
+        turnScorePanel.text = turn.ToString();
         panelEndOfGame.SetActive(true);
         isOver = true;
     }
