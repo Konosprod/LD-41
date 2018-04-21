@@ -43,6 +43,8 @@ public class Health : MonoBehaviour {
             if(gameObject.layer == 9) // Monster
             {
                 animator.SetBool("isDead", true);
+                gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                gameObject.GetComponent<Collider>().enabled = false;
                 GameManager._instance.RemoveMonster(gameObject);
                 StartCoroutine(WaitForFrameToFinish());
             }

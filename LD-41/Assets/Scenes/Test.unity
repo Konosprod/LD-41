@@ -649,8 +649,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 01000000
-  nbMobsPerWaves: 01000000
+  waves: 0100000002000000
+  nbMobsPerWaves: 0200000003000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!1 &1310707972

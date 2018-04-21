@@ -16,8 +16,11 @@ public class AttackBehaviour : StateMachineBehaviour {
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        int damage = animator.gameObject.GetComponent<Damage>().damage;
-        GameManager._instance.HitPlayer(damage);
+        if (!animator.gameObject.GetComponent<Health>().dead)
+        {
+            int damage = animator.gameObject.GetComponent<Damage>().damage;
+            GameManager._instance.HitPlayer(damage);
+        }
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
