@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     private bool isOver = false;
     private bool gameOver = false;
 
+    // Camera
+    FollowCamera followCamera;
+
     // Prefab for the player
     public GameObject playerPrefab;
     private GameObject player; // Actual player GameObject
@@ -96,10 +99,6 @@ public class GameManager : MonoBehaviour
                     if (moveHorizon != 0f)
                     {
                         // Debug.Log("Movement : " + moveHorizon);
-                        if (!currentPlayerGhost.activeSelf)
-                        {
-                            currentPlayerGhost.SetActive(true);
-                        }
                         currentPlayerGhost.transform.Translate(Vector3.right * moveHorizon * ghostSpeed);
                     }
 
@@ -119,29 +118,36 @@ public class GameManager : MonoBehaviour
         isStarted = true;
         isOver = false;
         gameOver = false;
-        timer = turnTimer;
         isPlanifTurn = true;
+
+        // Get the FollowCamera component
+        followCamera = Camera.main.GetComponent<FollowCamera>();
 
         // Player initialisation
         player = Instantiate(playerPrefab);
         playerGhosts = new List<GameObject>();
-        currentPlayerGhost = Instantiate(playerGhostPrefab, player.transform.position, player.transform.rotation);
-        currentPlayerGhost.SetActive(false);
 
         // Cards initialisation
         cardsInHand = new List<GameObject>();
-        DrawCards();
-        selectedCard = null;
+
+        // First turn is planif ?
+        SetupPlanifTurn();
     }
 
-    private void SetupTurn()
+    // Must be called before each turn
+    private void SetupPlanifTurn()
     {
         timer = turnTimer;
 
         // Player initialisation
+        // Remove old ghosts
+        foreach(GameObject ghost in playerGhosts)
+        {
+            Destroy(ghost); // ghostbusting :)
+        }
         playerGhosts = new List<GameObject>();
         currentPlayerGhost = Instantiate(playerGhostPrefab, player.transform.position, player.transform.rotation);
-        currentPlayerGhost.SetActive(false);
+        followCamera.SetTarget(currentPlayerGhost);
 
         // Cards initialisation
         DrawCards();
