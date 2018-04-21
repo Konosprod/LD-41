@@ -7,7 +7,7 @@ public class DeathSlashX2 : Card {
 
 	// Use this for initialization
 	void Start () {
-		
+        animationDo = "CrossPunch";
 	}
 	
 	// Update is called once per frame

@@ -6,7 +6,7 @@ public class DeathSlash : Card {
 
 	// Use this for initialization
 	void Start () {
-		
+        animationDo = "RoundhouseKick";
 	}    
 
     // Update is called once per frame

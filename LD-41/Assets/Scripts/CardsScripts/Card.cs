@@ -15,6 +15,8 @@ public abstract class Card : MonoBehaviour
     public Vector3 correspondingGhostPos;
     public Vector3 effectPosOffset;
 
+    public string animationDo;
+
     // The card does what it has to do
     public abstract void Do();
 

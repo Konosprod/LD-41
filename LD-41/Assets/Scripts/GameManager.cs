@@ -86,6 +86,8 @@ public class GameManager : MonoBehaviour
     // Player movement speed (distance per frame)
     private float playerMoveSpeed = 0.2f;
 
+    private bool canAct = true;
+
     void Awake()
     {
         if (_instance == null)
@@ -233,16 +235,18 @@ public class GameManager : MonoBehaviour
                 }
 
                 // Allows to grab a card and start playing it in the same frame
-                if (cardToPlay != null)
+                if (cardToPlay != null && canAct)
                 {
                     // Two steps to play the card => Move to the designated postion and play the effect of the card
                     timerPlayCardMove += Time.deltaTime;
                     if (timerPlayCardMove >= timeToDest)
                     {
                         // We play the card
-                        cardToPlay.Do();
-
-                        cardToPlay = null;
+                        StartCoroutine(Test());
+                        PlayerAnimator.SetBool("isMoving", false);
+                        Debug.Log(cardToPlay.animationDo);
+                        PlayerAnimator.Play(cardToPlay.animationDo);
+                        canAct = false;
                     }
                     else
                     {
@@ -485,5 +489,21 @@ public class GameManager : MonoBehaviour
     private void UpdateTimerText()
     {
         timerText.text = "Turn " + turn.ToString() + " Timer : " + timer.ToString("F");
+    }
+
+    private IEnumerator Test()
+    {
+        yield return new WaitForEndOfFrame();
+        StartCoroutine(Testb());
+    }
+
+    private IEnumerator Testb()
+    {
+        while (PlayerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            yield return null;
+
+        cardToPlay.Do();
+        cardToPlay = null;
+        canAct = true;
     }
 }
