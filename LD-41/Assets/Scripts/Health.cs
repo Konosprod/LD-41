@@ -43,7 +43,9 @@ public class Health : MonoBehaviour {
             if(gameObject.layer == 9)
             {
                 animator.SetBool("isDead", true);
+                GameManager._instance.RemoveMonster(gameObject);
                 StartCoroutine(WaitForFrameToFinish());
+
             }
         }
         else
@@ -63,13 +65,11 @@ public class Health : MonoBehaviour {
     private IEnumerator OnDeath(float time)
     {
         yield return new WaitForSeconds(time);
-        GameManager._instance.RemoveMonster(gameObject);
         Destroy(gameObject);
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(gameObject.name);
         if(GameManager._instance.IsPlayTurn() && gameObject.layer == 9) // 9 = monster
         {
             TakeDamage(other.gameObject.GetComponent<Damage>().damage);
