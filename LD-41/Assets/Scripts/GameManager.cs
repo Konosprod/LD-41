@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     private bool isOver = false;
     private bool gameOver = false;
 
+    // Score
+    private long score = 0;
+    public Text scoreText;
+
     // Camera
     FollowCamera followCamera;
 
@@ -38,6 +42,14 @@ public class GameManager : MonoBehaviour
     private GameObject currentPlayerGhost;
     // Speed of the ghost
     public float ghostSpeed = 0.2f;
+    //Foreground of the player healthbar
+    public Image healthBar;
+    //Animator for player
+    public Animator PlayerAnimator;
+    //Animator for the current ghost
+    public Animator GhostAnimator;
+    // Player movement speed (distance per frame)
+    private float playerMoveSpeed = 0.2f;
 
 
     // Cards
@@ -59,10 +71,6 @@ public class GameManager : MonoBehaviour
     public Card emptyCard;
     private bool emptyCardPlayedThisTurn = false;
 
-    //Animator for player
-    public Animator PlayerAnimator;
-    //Animator for the current ghost
-    public Animator GhostAnimator;
 
     // Monsters and SpawnPoints
     // List of spawnPoints
@@ -72,8 +80,6 @@ public class GameManager : MonoBehaviour
     // List of the spawned monsters
     private List<GameObject> monsters;
 
-    //Foreground of the player healthbar
-    public Image healthBar;
 
 
     // Playing the turn
@@ -83,8 +89,6 @@ public class GameManager : MonoBehaviour
     private float timeToDest = 0f;
     // Current timer
     private float timerPlayCardMove = 0f;
-    // Player movement speed (distance per frame)
-    private float playerMoveSpeed = 0.2f;
 
     private bool canAct = true;
 
@@ -117,6 +121,7 @@ public class GameManager : MonoBehaviour
         if (isStarted && !isOver)
         {
             CheckWin();
+            UpdateScoreText();
             if (isPlanifTurn)
             {
                 // The world is stopped, you can plan for your movement and card use
@@ -489,6 +494,16 @@ public class GameManager : MonoBehaviour
         timerText.text = "Turn " + turn.ToString() + " Timer : " + timer.ToString("F");
     }
 
+
+    private void UpdateScoreText()
+    {
+        scoreText.text = "Score : " + score.ToString();
+    }
+
+    public void GainScore(int scoreGain)
+    {
+        score += scoreGain;
+    }
 
     public void HitPlayer(int damage)
     {

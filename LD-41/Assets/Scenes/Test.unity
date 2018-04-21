@@ -248,11 +248,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnTimer: 6
   timerText: {fileID: 1530886770}
+  scoreText: {fileID: 1464047006}
   playerPrefab: {fileID: 1851795714732616, guid: df3e7c54a4dd24446864cb1c367de790,
     type: 2}
   playerGhostPrefab: {fileID: 1914152932971318, guid: 9d0c21c010ed46141bb718a144231f64,
     type: 2}
   ghostSpeed: 0.2
+  healthBar: {fileID: 199298156}
+  PlayerAnimator: {fileID: 0}
+  GhostAnimator: {fileID: 0}
   cards:
   - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
   - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
@@ -260,12 +264,9 @@ MonoBehaviour:
   handPanel: {fileID: 703381554}
   selectedCard: {fileID: 0}
   emptyCard: {fileID: 893483592}
-  PlayerAnimator: {fileID: 0}
-  GhostAnimator: {fileID: 0}
   spawnPoints:
   - {fileID: 1156323184}
   monstersParent: {fileID: 2064918334}
-  healthBar: {fileID: 199298156}
 --- !u!4 &240885676
 Transform:
   m_ObjectHideFlags: 0
@@ -649,8 +650,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 0100000002000000
-  nbMobsPerWaves: 0200000003000000
+  waves: 010000000200000003000000
+  nbMobsPerWaves: 020000000200000002000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!1 &1310707972
@@ -723,6 +724,80 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224956842220013014, guid: b9bab4cb4881a8f4d814abf176d73bec,
     type: 2}
   m_PrefabInternal: {fileID: 135098663}
+--- !u!1 &1464047004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1464047005}
+  - component: {fileID: 1464047007}
+  - component: {fileID: 1464047006}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1464047005
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1464047004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1517924676}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -120, y: -15}
+  m_SizeDelta: {x: 240, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1464047006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1464047004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Score : '
+--- !u!222 &1464047007
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1464047004}
 --- !u!1 &1517924672
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +886,7 @@ RectTransform:
   - {fileID: 1530886769}
   - {fileID: 703381555}
   - {fileID: 1369750543}
+  - {fileID: 1464047005}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

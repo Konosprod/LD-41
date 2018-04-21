@@ -20,6 +20,8 @@ public class IAMonster : MonoBehaviour
     public float attackDelay = 2.0f;
     private float currentAttackDelay = 0f;
 
+    public int scoreGiven = 50;
+
     private Health health;
     private Animator animator;
 
