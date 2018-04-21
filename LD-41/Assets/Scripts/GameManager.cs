@@ -77,6 +77,8 @@ public class GameManager : MonoBehaviour
 
 
     // Playing the turn
+    // Turn counter
+    private int turn = 0;
     // Time to destination
     private float timeToDest = 0f;
     // Current timer
@@ -112,6 +114,7 @@ public class GameManager : MonoBehaviour
     {
         if (isStarted && !isOver)
         {
+            CheckWin();
             if (isPlanifTurn)
             {
                 // The world is stopped, you can plan for your movement and card use
@@ -301,6 +304,7 @@ public class GameManager : MonoBehaviour
     // Must be called before each turn
     private void SetupPlanifTurn()
     {
+        turn++;
         timer = turnTimer;
 
         // Player initialisation
@@ -318,7 +322,7 @@ public class GameManager : MonoBehaviour
         // Spawn some monsters
         foreach (MonsterSpawnPoint sp in spawnPoints)
         {
-            List<GameObject> newMonsters = sp.SpawnMonsters(5);
+            List<GameObject> newMonsters = sp.SpawnMonsters(turn);
             foreach (GameObject mob in newMonsters)
             {
                 monsters.Add(mob);
@@ -452,8 +456,34 @@ public class GameManager : MonoBehaviour
         return !isPlanifTurn;
     }
 
+    public void RemoveMonster(GameObject mob)
+    {
+        monsters.Remove(mob);
+    }
+
+    private void CheckWin()
+    {
+        bool win = true;
+        // All SpawnPoints must be done
+        foreach (MonsterSpawnPoint sp in spawnPoints)
+        {
+            win &= sp.isDone;
+        }
+
+        // Now we check if all monsters are dead
+        if(win)
+        {
+            win &= monsters.Count == 0;
+
+            if(win)
+            {
+                isOver = true;
+            }
+        }
+    }
+
     private void UpdateTimerText()
     {
-        timerText.text = "Timer : " + timer.ToString("F");
+        timerText.text = "Turn " + turn.ToString() + " Timer : " + timer.ToString("F");
     }
 }

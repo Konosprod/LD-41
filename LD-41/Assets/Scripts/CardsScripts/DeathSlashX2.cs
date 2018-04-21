@@ -27,14 +27,14 @@ public class DeathSlashX2 : Card {
             if (mousePos.x > GameManager._instance.GetCurrentGhostPosition().x)
             {
                 //Debug.Log("To the right");
-                effectPos.x += 2f;
-                effectPosOffset = new Vector3(2f, 0f, 0f);
+                effectPosOffset = new Vector3(2f, 0.5f, 0f);
+                effectPos += effectPosOffset;
             }
             else
             {
                 //Debug.Log("To the left");
-                effectPos.x -= 2f;
-                effectPosOffset = new Vector3(-2f, 0f, 0f);
+                effectPosOffset = new Vector3(-2f, 0.5f, 0f);
+                effectPos += effectPosOffset;
             }
 
             effectInst.transform.position = effectPos;

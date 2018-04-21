@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 1156323181}
   - component: {fileID: 1156323184}
   m_Layer: 10
-  m_Name: SpawnPoint
+  m_Name: SpawnPointZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,6 +647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878f5bbdbdfe958488c08eb381ad661b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waves: 0100000004000000070000000a000000
+  nbMobsPerWaves: 03000000040000000600000008000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!1 &1310707972
@@ -848,7 +850,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1530886770
 MonoBehaviour:
