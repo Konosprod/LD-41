@@ -57,7 +57,11 @@ public class Health : MonoBehaviour {
         }
         else
         {
-            animator.SetBool("isHit", true);
+            if (gameObject.layer == 9)
+                animator.Play("ZombieReactionHit");
+            else
+                animator.Play("Reaction");
+        
         }
 
         UpdateHealthBar();

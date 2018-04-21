@@ -247,9 +247,7 @@ public class GameManager : MonoBehaviour
                     if (timerPlayCardMove >= timeToDest)
                     {
                         // We play the card
-                        StartCoroutine(Test());
                         PlayerAnimator.SetBool("isMoving", false);
-                        Debug.Log(cardToPlay.animationDo);
                         PlayerAnimator.Play(cardToPlay.animationDo);
                         canAct = false;
                     }
@@ -496,6 +494,7 @@ public class GameManager : MonoBehaviour
         timerText.text = "Turn " + turn.ToString() + " Timer : " + timer.ToString("F");
     }
 
+
     private void UpdateScoreText()
     {
         scoreText.text = "Score : " + score.ToString();
@@ -504,12 +503,6 @@ public class GameManager : MonoBehaviour
     public void GainScore(int scoreGain)
     {
         score += scoreGain;
-    }
-
-    private IEnumerator Test()
-    {
-        yield return new WaitForEndOfFrame();
-        StartCoroutine(Testb());
     }
 
     public void HitPlayer(int damage)
@@ -522,13 +515,20 @@ public class GameManager : MonoBehaviour
         gameOver = true;
     }
 
-    private IEnumerator Testb()
+    public void ExecuteCard()
     {
-        while (PlayerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-            yield return null;
-
         cardToPlay.Do();
         cardToPlay = null;
         canAct = true;
+    }
+
+    public void ReturnToMainMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Retry()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Test");
     }
 }
