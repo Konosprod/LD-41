@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
                     timer = 0f;
                     UpdateTimerText();
                     isPlanifTurn = false;
-                    EndTurn();
+                    EndPlanifTurn();
                 }
                 else
                 {
