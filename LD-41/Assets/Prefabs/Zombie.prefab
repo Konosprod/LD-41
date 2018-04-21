@@ -969,7 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1680f77931a0da428d754a1fbe71fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 5
+  maxHp: 45
   hp: 0
   healthBar: {fileID: 114677125368014426}
   dead: 0
@@ -1119,7 +1119,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 85455ee34e2c7f342b5d1689bad7895b, type: 3}
+  - {fileID: 2100000, guid: 7fa52865161369c468edafb1120fd448, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
