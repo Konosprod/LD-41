@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager _instance;
 
     // Duration of the planification turn
     public float turnTimer = 30.0f;
@@ -42,7 +43,24 @@ public class GameManager : MonoBehaviour
     private List<GameObject> cardsInHand;
     // Number of cards in hand
     public int nbCards = 5;
+    // The panel that holds the cards objects
+    public GameObject handPanel;
+    // The card currently selected
+    public GameObject selectedCard;
 
+
+
+    void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     // Use this for initialization
     void Start()
@@ -66,6 +84,7 @@ public class GameManager : MonoBehaviour
                 if (timer <= 0f)
                 {
                     // Planification is over
+                    timer = 0f;
                     isPlanifTurn = false;
                 }
                 else
@@ -74,7 +93,7 @@ public class GameManager : MonoBehaviour
                     float moveHorizon = Input.GetAxis("Horizontal");
                     if (moveHorizon != 0f)
                     {
-                        Debug.Log("Movement : " + moveHorizon);
+                        // Debug.Log("Movement : " + moveHorizon);
                         if (!currentPlayerGhost.activeSelf)
                         {
                             currentPlayerGhost.SetActive(true);
@@ -104,11 +123,26 @@ public class GameManager : MonoBehaviour
         // Player initialisation
         player = Instantiate(playerPrefab);
         playerGhosts = new List<GameObject>();
-        currentPlayerGhost = Instantiate(playerGhostPrefab);
+        currentPlayerGhost = Instantiate(playerGhostPrefab, player.transform.position, player.transform.rotation);
         currentPlayerGhost.SetActive(false);
 
         // Cards initialisation
-        cardsInHand = new List<GameObject>();
+        DrawCards();
+        selectedCard = null;
+    }
+
+    private void SetupTurn()
+    {
+        timer = turnTimer;
+
+        // Player initialisation
+        playerGhosts = new List<GameObject>();
+        currentPlayerGhost = Instantiate(playerGhostPrefab, player.transform.position, player.transform.rotation);
+        currentPlayerGhost.SetActive(false);
+
+        // Cards initialisation
+        DrawCards();
+        selectedCard = null;
     }
 
     // Card draw mechanics = random cards every turn
@@ -117,7 +151,9 @@ public class GameManager : MonoBehaviour
         cardsInHand = new List<GameObject>();
         while(cardsInHand.Count < nbCards)
         {
-            cardsInHand.Add(DrawCard());
+            GameObject card = Instantiate(DrawCard());
+            card.transform.SetParent(handPanel.transform);
+            cardsInHand.Add(card);
         }
     }
 
@@ -125,6 +161,22 @@ public class GameManager : MonoBehaviour
     private GameObject DrawCard()
     {
         return cards[Random.Range(0, cards.Count)];
+    }
+
+    public void SelectCardInHand(GameObject card)
+    {
+        if(cardsInHand.Find(x => x == card))
+        {
+            if(selectedCard != null)
+            {
+                selectedCard.GetComponent<Card>().DeselectCard();
+            }
+            selectedCard = card;
+        }
+        else
+        {
+            Debug.LogError("Card not found in hand");
+        }
     }
 
 
