@@ -13,15 +13,18 @@ public class Health : MonoBehaviour {
 
     public bool dead = false;
 
+    private Animator animator;
+
 	// Use this for initialization
 	void Start () {
+        animator = GetComponent<Animator>();
         hp = maxHp;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         //UpdateHealthBar();
-	}
+    }
 
     private void UpdateHealthBar()
     {
@@ -39,11 +42,23 @@ public class Health : MonoBehaviour {
             dead = true;
             if(gameObject.layer == 9)
             {
-                Destroy(gameObject);
+                animator.SetTrigger("isDead");
+                //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).length);
+                StartCoroutine(OnDeath(animator.GetCurrentAnimatorStateInfo(0).length));
             }
+        }
+        else
+        {
+            animator.SetBool("isHit", true);
         }
 
         UpdateHealthBar();
+    }
+
+    private IEnumerator OnDeath(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 
     public void OnTriggerEnter(Collider other)
