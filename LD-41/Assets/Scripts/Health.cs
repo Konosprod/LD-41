@@ -58,6 +58,7 @@ public class Health : MonoBehaviour {
     private IEnumerator OnDeath(float time)
     {
         yield return new WaitForSeconds(time);
+        GameManager._instance.RemoveMonster(gameObject);
         Destroy(gameObject);
     }
 
