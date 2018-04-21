@@ -50,7 +50,7 @@ public class Health : MonoBehaviour {
     public void OnTriggerEnter(Collider other)
     {
         //Debug.Log(gameObject.name);
-        if(GameManager._instance.isPlayTurn() && gameObject.layer == 9) // 9 = monster
+        if(GameManager._instance.IsPlayTurn() && gameObject.layer == 9) // 9 = monster
         {
             TakeDamage(other.gameObject.GetComponent<Damage>().damage);
         }
