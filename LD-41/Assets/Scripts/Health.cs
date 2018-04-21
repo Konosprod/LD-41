@@ -24,11 +24,11 @@ public class Health : MonoBehaviour {
         //UpdateHealthBar();
 	}
 
-    /*private void UpdateHealthBar()
+    private void UpdateHealthBar()
     {
         //Debug.Log("hp : " + hp + ", maxHp : " + maxHp + ", value : " + hp / maxHp);
         healthBar.fillAmount = hp / maxHp;
-    }*/
+    }
 
     public void TakeDamage(int damage)
     {
@@ -44,7 +44,7 @@ public class Health : MonoBehaviour {
             }
         }
 
-        //UpdateHealthBar();
+        UpdateHealthBar();
     }
 
     public void OnTriggerEnter(Collider other)
