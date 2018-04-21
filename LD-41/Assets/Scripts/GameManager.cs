@@ -513,6 +513,12 @@ public class GameManager : MonoBehaviour
     public void Lose()
     {
         gameOver = true;
+        isOver = true;
+    }
+
+    public bool isGameOver()
+    {
+        return gameOver;
     }
 
     public void ExecuteCard()
