@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76dafc09b5742e547aa323745c4f276a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnTimer: 30
+  turnTimer: 15
   timerText: {fileID: 1530886770}
   playerPrefab: {fileID: 1767575252930608, guid: 78477163c38f9954090568ad67160a8a,
     type: 2}
@@ -152,6 +152,7 @@ MonoBehaviour:
   - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
   nbCards: 5
   handPanel: {fileID: 703381554}
+  selectedCard: {fileID: 0}
 --- !u!4 &240885676
 Transform:
   m_ObjectHideFlags: 0

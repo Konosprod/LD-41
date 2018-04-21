@@ -85,7 +85,9 @@ public class GameManager : MonoBehaviour
                 {
                     // Planification is over
                     timer = 0f;
+                    UpdateTimerText();
                     isPlanifTurn = false;
+                    EndTurn();
                 }
                 else
                 {
@@ -127,6 +129,7 @@ public class GameManager : MonoBehaviour
         currentPlayerGhost.SetActive(false);
 
         // Cards initialisation
+        cardsInHand = new List<GameObject>();
         DrawCards();
         selectedCard = null;
     }
@@ -145,10 +148,24 @@ public class GameManager : MonoBehaviour
         selectedCard = null;
     }
 
+    private void EndTurn()
+    {
+        DiscardHand();
+        selectedCard = null;
+    }
+
+    private void DiscardHand()
+    {
+        foreach(GameObject card in cardsInHand)
+        {
+            Destroy(card);
+        }
+        cardsInHand = new List<GameObject>();
+    }
+
     // Card draw mechanics = random cards every turn
     private void DrawCards()
     {
-        cardsInHand = new List<GameObject>();
         while(cardsInHand.Count < nbCards)
         {
             GameObject card = Instantiate(DrawCard());
