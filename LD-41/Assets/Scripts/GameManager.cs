@@ -181,6 +181,8 @@ public class GameManager : MonoBehaviour
                         selectedCard = null;
 
                         currentPlayerGhost = Instantiate(playerGhostPrefab, currentPlayerGhost.transform.position, currentPlayerGhost.transform.rotation);
+                        GhostAnimator.SetBool("isMoving", false);
+                        GhostAnimator = currentPlayerGhost.GetComponent<Animator>();
                         followCamera.SetTarget(currentPlayerGhost);
                     }
 
@@ -236,7 +238,28 @@ public class GameManager : MonoBehaviour
                     else
                     {
                         // We move towards the ghost's position
-                        player.transform.Translate((cardToPlay.correspondingGhostPos - player.transform.position).normalized * playerMoveSpeed);
+
+                        Vector3 diff = cardToPlay.correspondingGhostPos - player.transform.position;
+
+                        if(diff.x > 0)
+                        {
+                            PlayerAnimator.SetBool("isMoving", true);
+                            player.transform.localEulerAngles = new Vector3(0, 90f, 0);
+                            player.transform.position += (player.transform.forward * playerMoveSpeed);
+                        }
+                        else if(diff.x < 0)
+                        {
+                            PlayerAnimator.SetBool("isMoving", true);
+                            player.transform.localEulerAngles = new Vector3(0, 90f, 0);
+                            player.transform.position -= (player.transform.forward * playerMoveSpeed);
+                        }
+
+                        if(Vector3.Distance(cardToPlay.correspondingGhostPos, player.transform.position) < 0.2)
+                        {
+                            PlayerAnimator.SetBool("isMoving", false);
+                        }
+                        
+                        //player.transform.Translate(diff.normalized * playerMoveSpeed);
                     }
                 }
                 
@@ -257,6 +280,7 @@ public class GameManager : MonoBehaviour
 
         // Player initialisation
         player = Instantiate(playerPrefab);
+        PlayerAnimator = player.GetComponent<Animator>();
         playerGhosts = new List<GameObject>();
 
         // Cards initialisation
