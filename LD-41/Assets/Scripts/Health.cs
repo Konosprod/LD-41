@@ -44,6 +44,7 @@ public class Health : MonoBehaviour {
             {
                 animator.SetTrigger("isDead");
                 //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).length);
+                GameManager._instance.RemoveMonster(gameObject);
                 StartCoroutine(OnDeath(animator.GetCurrentAnimatorStateInfo(0).length));
             }
         }
@@ -58,7 +59,6 @@ public class Health : MonoBehaviour {
     private IEnumerator OnDeath(float time)
     {
         yield return new WaitForSeconds(time);
-        GameManager._instance.RemoveMonster(gameObject);
         Destroy(gameObject);
     }
 
