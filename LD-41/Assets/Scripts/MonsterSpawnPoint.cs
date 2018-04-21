@@ -12,7 +12,8 @@ public class MonsterSpawnPoint : MonoBehaviour {
         
         for(int i=0; i< nb; i++)
         {
-            GameObject monster = Instantiate(monsterPrefabs[Random.Range(0, monsterPrefabs.Count)], new Vector3(transform.position.x + Random.Range(-4f, 4f), transform.position.y, transform.position.z), transform.rotation);
+            GameObject prefab = monsterPrefabs[Random.Range(0, monsterPrefabs.Count)];
+            GameObject monster = Instantiate(prefab.gameObject, new Vector3(transform.position.x + Random.Range(-4f, 4f), transform.position.y, transform.position.z), prefab.gameObject.transform.rotation);
             monsters.Add(monster);
         }
 
