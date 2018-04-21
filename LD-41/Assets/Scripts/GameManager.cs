@@ -72,6 +72,9 @@ public class GameManager : MonoBehaviour
     // List of the spawned monsters
     private List<GameObject> monsters;
 
+    //Foreground of the player healthbar
+    public Image healthBar;
+
 
     // Playing the turn
     // Time to destination
@@ -280,6 +283,7 @@ public class GameManager : MonoBehaviour
 
         // Player initialisation
         player = Instantiate(playerPrefab);
+        player.GetComponent<Health>().healthBar = healthBar;
         PlayerAnimator = player.GetComponent<Animator>();
         playerGhosts = new List<GameObject>();
 

@@ -15,7 +15,6 @@ public class Health : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        healthBar = GameObject.Find("HealthBar").GetComponentsInChildren<Image>()[1];
         hp = maxHp;
 	}
 	
