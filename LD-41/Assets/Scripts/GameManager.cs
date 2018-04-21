@@ -313,9 +313,16 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        foreach(GameObject ghost in playerGhosts)
+        GameObject[] delGhosts = new GameObject[playerGhosts.Count];
+        int i = 0;
+        foreach (GameObject ghost in playerGhosts)
         {
-            Destroy(ghost);
+            delGhosts[i] =  ghost;
+            i++;
+        }
+        for(int j = 0; j < i; j++)
+        {
+            Destroy(delGhosts[j]);
         }
         Destroy(currentPlayerGhost);
 
