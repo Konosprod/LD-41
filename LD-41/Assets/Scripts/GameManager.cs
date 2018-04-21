@@ -321,6 +321,8 @@ public class GameManager : MonoBehaviour
 
         followCamera.target = player;
 
+        GhostAnimator.SetBool("isMoving", false);
+
         SetupExecTurn();
     }
 
@@ -332,13 +334,6 @@ public class GameManager : MonoBehaviour
     private void EndExecTurn()
     {
         SetupPlanifTurn();
-    }
-
-    private void EndTurn()
-    {
-        DiscardHand();
-        selectedCard = null;
-        GhostAnimator.SetBool("isMoving", false);
     }
 
     private void DiscardHand()
