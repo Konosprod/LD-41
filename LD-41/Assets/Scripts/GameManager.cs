@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     public Animator PlayerAnimator;
     //Animator for the current ghost
     public Animator GhostAnimator;
-    
+
     // Monsters and SpawnPoints
     // List of spawnPoints
     public List<MonsterSpawnPoint> spawnPoints;
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
                         // Debug.Log("Movement : " + moveHorizon);
                         currentPlayerGhost.transform.position += (currentPlayerGhost.transform.forward * moveHorizon * ghostSpeed);
                     }
-                    else if(moveHorizon < 0f)
+                    else if (moveHorizon < 0f)
                     {
                         GhostAnimator.SetBool("isMoving", true);
                         currentPlayerGhost.transform.eulerAngles = new Vector3(0, -90f, 0);
@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour
 
 
                     // On left-click we validate the selected card play
-                    if(selectedCard != null && Input.GetMouseButtonDown(0))
+                    if (selectedCard != null && Input.GetMouseButtonDown(0))
                     {
                         Card cardEffect = selectedCard.GetComponentInChildren<Card>();
                         cardEffect.isTargeting = false;
@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour
                     }
 
                     // On pressing space we add a movement
-                    if(!emptyCardPlayedThisTurn && Input.GetKeyDown(KeyCode.Space))
+                    if (!emptyCardPlayedThisTurn && Input.GetKeyDown(KeyCode.Space))
                     {
                         emptyCardPlayedThisTurn = true;
                         emptyCard.correspondingGhostPos = currentPlayerGhost.transform.position;
@@ -205,7 +205,7 @@ public class GameManager : MonoBehaviour
                 if (cardToPlay == null)
                 {
                     // No more cards we go back to planif
-                    if(cardsToPlay.Count == 0)
+                    if (cardsToPlay.Count == 0)
                     {
                         isPlanifTurn = true;
                         EndExecTurn();
@@ -224,11 +224,11 @@ public class GameManager : MonoBehaviour
                 }
 
                 // Allows to grab a card and start playing it in the same frame
-                if(cardToPlay!=null)
+                if (cardToPlay != null)
                 {
                     // Two steps to play the card => Move to the designated postion and play the effect of the card
                     timerPlayCardMove += Time.deltaTime;
-                    if(timerPlayCardMove >= timeToDest)
+                    if (timerPlayCardMove >= timeToDest)
                     {
                         // We play the card
                         cardToPlay.Do();
@@ -262,7 +262,7 @@ public class GameManager : MonoBehaviour
                         //player.transform.Translate(diff.normalized * playerMoveSpeed);
                     }
                 }
-                
+
             }
         }
     }
@@ -305,7 +305,7 @@ public class GameManager : MonoBehaviour
         // Cards initialisation
         DrawCard();
         emptyCardPlayedThisTurn = false;
-        
+
 
 
         // Spawn some monsters
@@ -333,7 +333,7 @@ public class GameManager : MonoBehaviour
 
         foreach (Card c in cardsToPlay)
         {
-            if(c.effectInst != null)
+            if (c.effectInst != null)
             {
                 Destroy(c.effectInst);
             }
@@ -343,10 +343,10 @@ public class GameManager : MonoBehaviour
         int i = 0;
         foreach (GameObject ghost in playerGhosts)
         {
-            delGhosts[i] =  ghost;
+            delGhosts[i] = ghost;
             i++;
         }
-        for(int j = 0; j < i; j++)
+        for (int j = 0; j < i; j++)
         {
             Destroy(delGhosts[j]);
         }
@@ -370,9 +370,16 @@ public class GameManager : MonoBehaviour
 
     private void DiscardHand()
     {
+        GameObject[] delCards = new GameObject[cardsInHand.Count];
+        int i = 0;
         foreach (GameObject card in cardsInHand)
         {
-            Destroy(card);
+            delCards[i] = card;
+            i++;
+        }
+        for (int j = 0; j < i; j++)
+        {
+            Destroy(delCards[j]);
         }
         cardsInHand = new List<GameObject>();
     }
@@ -433,7 +440,7 @@ public class GameManager : MonoBehaviour
         return player.transform.position;
     }
 
-    public bool isPlayTurn()
+    public bool IsPlayTurn()
     {
         return !isPlanifTurn;
     }
