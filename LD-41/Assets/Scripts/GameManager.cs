@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
     // The panel that holds the cards objects
     public GameObject handPanel;
     // The card currently selected
-    [HideInInspector]
     public GameObject selectedCard;
     // The cards that must be played
     private List<Card> cardsToPlay;
@@ -60,7 +59,12 @@ public class GameManager : MonoBehaviour
     public Card emptyCard;
     private bool emptyCardPlayedThisTurn = false;
 
+    //Animator for player
+    public Animator PlayerAnimator;
+    //Animator for the current ghost
+    public Animator GhostAnimator;
 
+<<<<<<< HEAD
     // Monsters and SpawnPoints
     // List of spawnPoints
     public List<MonsterSpawnPoint> spawnPoints;
@@ -68,6 +72,8 @@ public class GameManager : MonoBehaviour
     public Transform monstersParent;
     // List of the spawned monsters
     private List<GameObject> monsters;
+=======
+>>>>>>> ae7e258872b16f2a1b333c8569f51c86088a4658
 
 
     // Playing the turn
@@ -116,16 +122,28 @@ public class GameManager : MonoBehaviour
                     timer = 0f;
                     UpdateTimerText();
                     isPlanifTurn = false;
-                    EndPlanifTurn();
+                    EndTurn();
                 }
                 else
                 {
                     // Grab the inputs
                     float moveHorizon = Input.GetAxis("Horizontal");
-                    if (moveHorizon != 0f)
+                    if (moveHorizon > 0f)
                     {
+                        GhostAnimator.SetBool("isMoving", true);
+                        currentPlayerGhost.transform.eulerAngles = new Vector3(0, 90f, 0);
                         // Debug.Log("Movement : " + moveHorizon);
-                        currentPlayerGhost.transform.Translate(Vector3.right * moveHorizon * ghostSpeed);
+                        currentPlayerGhost.transform.position += (currentPlayerGhost.transform.forward * moveHorizon * ghostSpeed);
+                    }
+                    else if(moveHorizon < 0f)
+                    {
+                        GhostAnimator.SetBool("isMoving", true);
+                        currentPlayerGhost.transform.eulerAngles = new Vector3(0, -90f, 0);
+                        currentPlayerGhost.transform.position -= (currentPlayerGhost.transform.forward * moveHorizon * ghostSpeed);
+                    }
+                    else
+                    {
+                        GhostAnimator.SetBool("isMoving", false);
                     }
 
                     if (cardsInHand.Count >= 1 && Input.GetKeyDown(KeyCode.Alpha1))
@@ -248,9 +266,6 @@ public class GameManager : MonoBehaviour
         cardsInHand = new List<GameObject>();
         DrawCards();
 
-        // Monster initialisation
-        monsters = new List<GameObject>();
-
         // First turn is planif ?
         SetupPlanifTurn();
     }
@@ -263,12 +278,14 @@ public class GameManager : MonoBehaviour
         // Player initialisation
         playerGhosts = new List<GameObject>();
         currentPlayerGhost = Instantiate(playerGhostPrefab, player.transform.position, player.transform.rotation);
+        GhostAnimator = currentPlayerGhost.GetComponent<Animator>();
         followCamera.SetTarget(currentPlayerGhost);
 
         // Cards initialisation
         DrawCard();
         emptyCardPlayedThisTurn = false;
 
+<<<<<<< HEAD
 
 
         // Spawn some monsters
@@ -319,6 +336,13 @@ public class GameManager : MonoBehaviour
     private void EndExecTurn()
     {
         SetupPlanifTurn();
+=======
+    private void EndTurn()
+    {
+        DiscardHand();
+        selectedCard = null;
+        GhostAnimator.SetBool("isMoving", false);
+>>>>>>> ae7e258872b16f2a1b333c8569f51c86088a4658
     }
 
     private void DiscardHand()
