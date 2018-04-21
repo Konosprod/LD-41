@@ -526,6 +526,12 @@ public class GameManager : MonoBehaviour
         scoreTextPanel.text = score.ToString();
         turnScorePanel.text = score.ToString();
         panelEndOfGame.SetActive(true);
+        isOver = true;
+    }
+
+    public bool isGameOver()
+    {
+        return gameOver;
     }
 
     public void ExecuteCard()

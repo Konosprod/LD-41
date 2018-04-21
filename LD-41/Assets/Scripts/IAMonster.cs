@@ -37,45 +37,52 @@ public class IAMonster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // The IA only plays during play turn (how fair)
-        if (GameManager._instance.IsPlayTurn())
+        if (GameManager._instance.isGameOver())
         {
-            // Cooldown for the attack
-            currentAttackDelay -= Time.deltaTime;
-
-            playerPos = GameManager._instance.GetPlayerPosition();
-            Vector3 diff = playerPos - transform.position;
-
-            if (diff.x > 0)
+            animator.SetBool("isMoving", false);
+        }
+        else
+        {
+            // The IA only plays during play turn (how fair)
+            if (GameManager._instance.IsPlayTurn())
             {
-                transform.localEulerAngles = new Vector3(0, 90f, 0);
-            }
-            else if (diff.x < 0)
-            {
-                transform.localEulerAngles = new Vector3(0, -90f, 0);
-            }
+                // Cooldown for the attack
+                currentAttackDelay -= Time.deltaTime;
 
-            float distToPlayer = Vector3.Distance(transform.position, playerPos);
-            //Debug.Log("Distance : " + distToPlayer + ", hp : " + hp);
+                playerPos = GameManager._instance.GetPlayerPosition();
+                Vector3 diff = playerPos - transform.position;
 
-            if (!health.dead)
-            {
-                if (distToPlayer < attackRange)
+                if (diff.x > 0)
                 {
-                    // Attack the player
-                    animator.SetBool("isMoving", false);
-                    if (currentAttackDelay <= 0f)
-                    {
-                        animator.Play("Kicking");
-                        currentAttackDelay = attackDelay;
-                    }
+                    transform.localEulerAngles = new Vector3(0, 90f, 0);
                 }
-                else
+                else if (diff.x < 0)
                 {
-                    // Move towards the player
-                    //Debug.Log("Distance : " + distToPlayer + ", hp : " + health.hp);
-                    animator.SetBool("isMoving", true);
-                    transform.position += (transform.forward * moveSpeed * Time.deltaTime);
+                    transform.localEulerAngles = new Vector3(0, -90f, 0);
+                }
+
+                float distToPlayer = Vector3.Distance(transform.position, playerPos);
+                //Debug.Log("Distance : " + distToPlayer + ", hp : " + hp);
+
+                if (!health.dead)
+                {
+                    if (distToPlayer < attackRange)
+                    {
+                        // Attack the player
+                        animator.SetBool("isMoving", false);
+                        if (currentAttackDelay <= 0f)
+                        {
+                            animator.Play("Kicking");
+                            currentAttackDelay = attackDelay;
+                        }
+                    }
+                    else
+                    {
+                        // Move towards the player
+                        //Debug.Log("Distance : " + distToPlayer + ", hp : " + health.hp);
+                        animator.SetBool("isMoving", true);
+                        transform.position += (transform.forward * moveSpeed * Time.deltaTime);
+                    }
                 }
             }
         }
