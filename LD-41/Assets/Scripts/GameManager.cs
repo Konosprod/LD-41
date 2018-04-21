@@ -10,12 +10,15 @@ public class GameManager : MonoBehaviour
 
     // Duration of the planification turn
     public float turnTimer = 30.0f;
+    public float endOfExecTurnDelay = 0.5f;
     private float timer;
 
     public Text timerText;
 
     // State of the game : planifTurn or realTurn
     private bool isPlanifTurn = true;
+    // We added delay at the end of the exec turn so there is a temporary state between the end of exec and start of next planif turn
+    private bool inBetweenTurn = false;
 
     // Wether the game is started or not
     private bool isStarted = true;
@@ -221,7 +224,7 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
-            else
+            else if(!inBetweenTurn)
             {
                 // We execute everything that was planned
                 // Get a card to play
@@ -230,8 +233,8 @@ public class GameManager : MonoBehaviour
                     // No more cards we go back to planif
                     if (cardsToPlay.Count == 0)
                     {
-                        isPlanifTurn = true;
-                        EndExecTurn();
+                        inBetweenTurn = true;
+                        StartCoroutine(DelayedEndExecTurn(endOfExecTurnDelay));
                     }
                     else
                     {
@@ -254,9 +257,17 @@ public class GameManager : MonoBehaviour
                     if (timerPlayCardMove >= timeToDest)
                     {
                         // We play the card
-                        PlayerAnimator.SetBool("isMoving", false);
-                        PlayerAnimator.Play(cardToPlay.animationDo);
-                        canAct = false;
+                        if (cardToPlay != emptyCard)
+                        {
+                            PlayerAnimator.SetBool("isMoving", false);
+                            PlayerAnimator.Play(cardToPlay.animationDo);
+                            canAct = false;
+                        }
+                        else
+                        {
+                            // Nothing to do if the current card is the empty card
+                            cardToPlay = null;
+                        }
                     }
                     else
                     {
@@ -320,6 +331,7 @@ public class GameManager : MonoBehaviour
     {
         turn++;
         timer = turnTimer;
+        inBetweenTurn = false;
 
         // Player initialisation
         playerGhosts = new List<GameObject>();
@@ -388,8 +400,15 @@ public class GameManager : MonoBehaviour
 
     }
 
+    IEnumerator DelayedEndExecTurn(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        EndExecTurn();
+    }
+
     private void EndExecTurn()
     {
+        isPlanifTurn = true;
         SetupPlanifTurn();
     }
 
