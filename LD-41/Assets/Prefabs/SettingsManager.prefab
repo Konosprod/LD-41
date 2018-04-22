@@ -52,5 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggleFullscreen: {fileID: 0}
-  sliderVolume: {fileID: 0}
+  sliderVolumeSFX: {fileID: 0}
+  sliderVolumeBGM: {fileID: 0}
   dropdownResolutions: {fileID: 0}

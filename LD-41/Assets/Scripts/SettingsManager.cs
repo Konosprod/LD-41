@@ -10,7 +10,8 @@ public class SettingsManager : MonoBehaviour {
     private Resolution[] resolutions;
 
     public Toggle toggleFullscreen;
-    public Slider sliderVolume;
+    public Slider sliderVolumeSFX;
+    public Slider sliderVolumeBGM;
     public Dropdown dropdownResolutions;
 
     public GameSettings gameSettings;
@@ -38,10 +39,11 @@ public class SettingsManager : MonoBehaviour {
 
         toggleFullscreen.onValueChanged.AddListener(OnFullscreenChanged);
         dropdownResolutions.onValueChanged.AddListener(OnResolutionChanged);
-        sliderVolume.onValueChanged.AddListener(OnVolumeChanged);
+        sliderVolumeSFX.onValueChanged.AddListener(OnVolumeChangedSFX);
+        sliderVolumeBGM.onValueChanged.AddListener(OnVolumeChangedBGM);
 
 
-        foreach(Resolution r in resolutions)
+        foreach (Resolution r in resolutions)
         {
             dropdownResolutions.options.Add(new Dropdown.OptionData(r.ToString()));
         }
@@ -59,13 +61,22 @@ public class SettingsManager : MonoBehaviour {
         gameSettings.Fullscreen = Screen.fullScreen = newValue;
     }
 
-    private void OnVolumeChanged(float newValue)
+    private void OnVolumeChangedBGM(float newValue)
     {
-        gameSettings.Volume = sliderVolume.value;
-        SoundManager._instance.SetVolume(newValue);
+        gameSettings.VolumeBGM = sliderVolumeBGM.value;
+        SoundManager._instance.SetBGMVolume(newValue);
 
-        if (newValue == sliderVolume.minValue)
-            SoundManager._instance.MuteVolume();
+        if (newValue == sliderVolumeBGM.minValue)
+            SoundManager._instance.MuteBGM();
+    }
+
+    private void OnVolumeChangedSFX(float newValue)
+    {
+        gameSettings.VolumeSFX = sliderVolumeSFX.value;
+        SoundManager._instance.SetSFXVolume(newValue);
+
+        if (newValue == sliderVolumeSFX.minValue)
+            SoundManager._instance.MuteSFX();
     }
 
     private void OnResolutionChanged(int newValue)
@@ -81,14 +92,16 @@ public class SettingsManager : MonoBehaviour {
             gameSettings = JsonUtility.FromJson<GameSettings>(File.ReadAllText(Application.persistentDataPath + "/gamesettings.json"));
 
             toggleFullscreen.isOn = gameSettings.Fullscreen;
-            sliderVolume.value = gameSettings.Volume;
+            sliderVolumeSFX.value = gameSettings.VolumeSFX;
+            sliderVolumeBGM.value = gameSettings.VolumeBGM;
             dropdownResolutions.value = gameSettings.Resolution;
         }
         catch(Exception)
         {
             toggleFullscreen.isOn = Screen.fullScreen;
             dropdownResolutions.value = GetResolutionIndex();
-            sliderVolume.value = 1f;
+            sliderVolumeBGM.value = 1f;
+            sliderVolumeSFX.value = 1f;
         }
     }
 

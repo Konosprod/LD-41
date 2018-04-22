@@ -51,4 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021f6253624076d4e82f9fa34f61496b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterMixer: {fileID: 24100000, guid: a9ce217dd3a69f74c9e430ca04c4af1a, type: 2}
+  masterMixer: {fileID: 24100000, guid: 3ba44a17e47d68c4883b39ffd65a7741, type: 2}
+  bgmSource: {fileID: 0}
+  sfxSource: {fileID: 0}
