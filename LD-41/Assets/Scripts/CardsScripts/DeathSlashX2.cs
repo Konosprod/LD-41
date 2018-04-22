@@ -47,6 +47,23 @@ public class DeathSlashX2 : Card {
     {
         effectInst = Instantiate(effect, GameManager._instance.GetPlayerPosition() + effectPosOffset, Quaternion.identity);
 
+        MeshRenderer[] meshRends = effectInst.GetComponentsInChildren<MeshRenderer>();
+        foreach(MeshRenderer mr in meshRends)
+        {
+            mr.enabled = false;
+        }
+
+        if (effectPosOffset.x < 0f)
+        {
+            effectInst.transform.Rotate(Vector3.up, 180f);
+        }
+
+        ParticleSystem[] particleSystems = effectInst.GetComponentsInChildren<ParticleSystem>();
+        foreach(ParticleSystem ps in particleSystems)
+        {
+            ps.Play();
+        }
+
         if (SoundManager._instance != null)
         {
             SoundManager._instance.PlaySFX(SFXType.Punch);
