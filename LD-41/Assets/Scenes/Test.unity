@@ -609,6 +609,7 @@ MonoBehaviour:
   emptyCard: {fileID: 893483592}
   spawnPoints:
   - {fileID: 1156323184}
+  - {fileID: 149202311}
   monstersParent: {fileID: 2064918334}
   panelEndOfGame: {fileID: 1649257965}
   scoreTextPanel: {fileID: 1349628380}
