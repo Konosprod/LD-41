@@ -220,6 +220,7 @@ public class GameManager : MonoBehaviour
                         Card cardEffect = selectedCard.GetComponentInChildren<Card>();
                         cardEffect.isTargeting = false;
                         cardEffect.correspondingGhostPos = currentPlayerGhost.transform.position;
+                        //cardEffect.correspondingGhostRot = cardEffect.eff
                         GameObject cardEffectGO = cardEffect.gameObject;
                         cardEffectGO.transform.parent = player.transform;
                         cardsToPlay.Add(cardEffect);
@@ -240,6 +241,7 @@ public class GameManager : MonoBehaviour
                     {
                         emptyCardPlayedThisTurn = true;
                         emptyCard.correspondingGhostPos = currentPlayerGhost.transform.position;
+                        emptyCard.correspondingGhostRot = currentPlayerGhost.transform.localEulerAngles;
                         cardsToPlay.Add(emptyCard);
                         playerGhosts.Add(currentPlayerGhost);
                         currentPlayerGhost = Instantiate(playerGhostPrefab, currentPlayerGhost.transform.position, currentPlayerGhost.transform.rotation);
@@ -284,6 +286,7 @@ public class GameManager : MonoBehaviour
                         // We play the card
                         if (cardToPlay != emptyCard)
                         {
+                            player.transform.localEulerAngles = cardToPlay.correspondingGhostRot;
                             PlayerAnimator.SetBool("isMoving", false);
                             PlayerAnimator.Play(cardToPlay.animationDo);
                             canAct = false;
