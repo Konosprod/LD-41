@@ -478,6 +478,13 @@ public class GameManager : MonoBehaviour
         return cards[Random.Range(0, cards.Count)];
     }
 
+    public void PickupCard(PickupItem pick)
+    {
+        GameObject card = Instantiate(pick.cardPrefab);
+        card.transform.SetParent(handPanel.transform);
+        cardsInHand.Add(card);
+    }
+
     public void SelectCardInHand(GameObject card)
     {
         if (cardsInHand.Find(x => x == card))
