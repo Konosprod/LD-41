@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
 
 
     // Cards
+    // Deck script that handles the ... deck (#WhatASurprise)
+    private Deck deck;
     // All Cards of the game
     public List<GameObject> cards;
     // Hand of the player
@@ -124,6 +126,7 @@ public class GameManager : MonoBehaviour
         playerGhosts = new List<GameObject>();
         cardsToPlay = new List<Card>();
         monsters = new List<GameObject>();
+        deck = GetComponent<Deck>();
 
         StartGame();
     }
@@ -458,7 +461,8 @@ public class GameManager : MonoBehaviour
     {
         if (cardsInHand.Count < nbCards)
         {
-            GameObject card = Instantiate(PickRandomCard());
+            //GameObject card = Instantiate(PickRandomCard());
+            GameObject card = deck.DrawCardFromDeck();
             card.transform.SetParent(handPanel.transform);
             cardsInHand.Add(card);
         }
@@ -469,9 +473,7 @@ public class GameManager : MonoBehaviour
     {
         while (cardsInHand.Count < nbCards)
         {
-            GameObject card = Instantiate(PickRandomCard());
-            card.transform.SetParent(handPanel.transform);
-            cardsInHand.Add(card);
+            DrawCard();
         }
     }
 
