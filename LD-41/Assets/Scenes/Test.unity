@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deckComposition:
-  - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
+  - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
   deck: []
 --- !u!4 &276146056 stripped
 Transform:

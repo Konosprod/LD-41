@@ -47,7 +47,10 @@ public class HokutaHyokuretsuKun : Card {
     {
         effectInst = Instantiate(effect, GameManager._instance.GetPlayerPosition() + effectPosOffset, Quaternion.identity);
 
-        if(SoundManager._instance != null)
+        effectInst.GetComponent<MeshRenderer>().enabled = false;
+        effectInst.GetComponent<ParticleSystem>().Play();
+
+        if (SoundManager._instance != null)
         {
             SoundManager._instance.PlaySFX(SFXType.Punch);
         }
