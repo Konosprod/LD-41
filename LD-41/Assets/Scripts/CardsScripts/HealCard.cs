@@ -30,7 +30,8 @@ public class HealCard : Card {
                 
                 effectPosOffset = new Vector3(0f, 0.5f, 0f);
                 effectPos += effectPosOffset;
-                
+                correspondingGhostRot = new Vector3(0, 90f, 0);
+
             }
             else
             {
@@ -38,7 +39,8 @@ public class HealCard : Card {
                 
                 effectPosOffset = new Vector3(0f, 0.5f, 0f);
                 effectPos += effectPosOffset;
-                
+                correspondingGhostRot = new Vector3(0, -90f, 0);
+
             }
 
             effectInst.transform.position = effectPos;

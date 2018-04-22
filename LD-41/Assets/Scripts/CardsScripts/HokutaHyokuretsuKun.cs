@@ -29,12 +29,14 @@ public class HokutaHyokuretsuKun : Card {
                 //Debug.Log("To the right");
                 effectPosOffset = new Vector3(0.7f, 0.5f, 0f);
                 effectPos += effectPosOffset;
+                correspondingGhostRot = new Vector3(0, 90f, 0);
             }
             else
             {
                 //Debug.Log("To the left");
                 effectPosOffset = new Vector3(-0.7f, 0.5f, 0f);
                 effectPos += effectPosOffset;
+                correspondingGhostRot = new Vector3(0, -90f, 0);
             }
 
             effectInst.transform.position = effectPos;
