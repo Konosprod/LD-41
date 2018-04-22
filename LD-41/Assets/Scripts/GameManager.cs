@@ -465,8 +465,8 @@ public class GameManager : MonoBehaviour
     {
         if (cardsInHand.Count < nbCards)
         {
-            //GameObject card = Instantiate(PickRandomCard());
-            GameObject card = deck.DrawCardFromDeck();
+           // GameObject card = Instantiate(PickRandomCard());
+            GameObject card = Instantiate(deck.DrawCardFromDeck());
             card.transform.SetParent(handPanel.transform);
             cardsInHand.Add(card);
         }

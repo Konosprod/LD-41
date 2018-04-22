@@ -17,7 +17,7 @@ public class Deck : MonoBehaviour {
 
     public GameObject DrawCardFromDeck()
     {
-        GameObject card = new GameObject();
+        GameObject card = null;
         
         if(deck.Count == 0)
         {
@@ -25,7 +25,7 @@ public class Deck : MonoBehaviour {
             ShuffleDeck();
         }
 
-        card = Instantiate(deck[0]);
+        card = deck[0];
         deck.RemoveAt(0);
 
         return card;
