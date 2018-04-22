@@ -55,8 +55,8 @@ public class HealCard : Card {
 
         if(SoundManager._instance != null)
         {
-            Debug.Log("Play heal sound");
-            //SoundManager._instance.PlaySFX(SFXType.Punch);
+            //Debug.Log("Play heal sound");
+            SoundManager._instance.PlaySFX(SFXType.Heal);
         }
 
         StartCoroutine(SelfDestroy());

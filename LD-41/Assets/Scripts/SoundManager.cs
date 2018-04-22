@@ -12,7 +12,9 @@ public enum SoundType
 
 public enum SFXType
 {
-    Punch
+    Punch,
+    Heal,
+    Shield
 };
 
 public class SoundManager : MonoBehaviour
