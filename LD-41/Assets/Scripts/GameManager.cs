@@ -357,6 +357,7 @@ public class GameManager : MonoBehaviour
 
         // Cards initialisation
         DrawCard();
+        DrawCard();
         emptyCardPlayedThisTurn = false;
 
 
