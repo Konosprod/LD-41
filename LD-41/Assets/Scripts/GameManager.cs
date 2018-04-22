@@ -107,6 +107,18 @@ public class GameManager : MonoBehaviour
     private bool canAct = true;
 
 
+
+    [Header("Pickup")]
+    // Pickup prefab
+    public GameObject pickupPrefab;
+    // List of cards eligible as pickups
+    public List<GameObject> pickupCards;
+    // Level bounds
+    public Transform cornerTopLeft;
+    public Transform cornerTopRight;
+    public Transform cornerBottomLeft;
+
+
     void Awake()
     {
         if (_instance == null)
@@ -375,7 +387,11 @@ public class GameManager : MonoBehaviour
         DrawCard();
         emptyCardPlayedThisTurn = false;
 
-
+        // Spawn a pickup
+        if (Random.Range(0, 100) < (10 + (turn / 2)))
+        {
+            SpawnPickup();
+        }
 
         // Spawn some monsters
         foreach (MonsterSpawnPoint sp in spawnPoints)
@@ -492,6 +508,22 @@ public class GameManager : MonoBehaviour
         GameObject card = Instantiate(pick.cardPrefab);
         card.transform.SetParent(handPanel.transform);
         cardsInHand.Add(card);
+    }
+
+    private void SpawnPickup()
+    {
+        float minX = cornerTopLeft.position.x;
+        float maxX = cornerTopRight.position.x;
+        float minZ = cornerBottomLeft.position.z;
+        float maxZ = cornerTopLeft.position.z;
+
+        float posX = Random.Range(minX, maxX);
+        float posY = 1.5f;
+        float posZ = Random.Range(minZ, maxZ);
+
+        GameObject card = pickupCards[Random.Range(0, pickupCards.Count)];
+        GameObject pickup = Instantiate(pickupPrefab, new Vector3(posX, posY, posZ), Quaternion.identity);
+        pickup.GetComponent<PickupItem>().cardPrefab = card;
     }
 
     public void SelectCardInHand(GameObject card)
