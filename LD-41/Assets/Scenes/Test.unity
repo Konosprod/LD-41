@@ -501,6 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnTimer: 6
+  endOfExecTurnDelay: 0.5
   timerText: {fileID: 1530886770}
   scoreText: {fileID: 1464047006}
   playerPrefab: {fileID: 1851795714732616, guid: df3e7c54a4dd24446864cb1c367de790,
