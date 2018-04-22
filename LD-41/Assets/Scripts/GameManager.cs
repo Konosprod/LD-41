@@ -224,6 +224,18 @@ public class GameManager : MonoBehaviour
                     {
                         SelectCardInHand(cardsInHand[4]);
                     }
+                    if (cardsInHand.Count >= 6 && Input.GetKeyDown(KeyCode.Alpha6))
+                    {
+                        SelectCardInHand(cardsInHand[5]);
+                    }
+                    if (cardsInHand.Count >= 7 && Input.GetKeyDown(KeyCode.Alpha7))
+                    {
+                        SelectCardInHand(cardsInHand[6]);
+                    }
+                    if (cardsInHand.Count >= 8 && Input.GetKeyDown(KeyCode.Alpha8))
+                    {
+                        SelectCardInHand(cardsInHand[7]);
+                    }
 
 
                     // On left-click we validate the selected card play
