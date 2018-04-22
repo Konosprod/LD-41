@@ -13,6 +13,7 @@ public abstract class Card : MonoBehaviour
     public GameObject effectInst; // Instance of the prefab above when needed
     public bool isTargeting = false;
     public Vector3 correspondingGhostPos;
+    public Vector3 correspondingGhostRot;
     public Vector3 effectPosOffset;
 
     public string animationDo;
