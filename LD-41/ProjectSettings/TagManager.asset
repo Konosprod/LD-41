@@ -17,9 +17,9 @@ TagManager:
   - Monster
   - SpawnPoint
   - Ghost
-  - 
-  - 
-  - 
+  - Heal
+  - Pickup
+  - Border
   - 
   - 
   - 

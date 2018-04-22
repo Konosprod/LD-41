@@ -38,12 +38,13 @@ public class CardInHand : MonoBehaviour
     public void OnPointerClick(PointerEventData eventData)
     {
         //Debug.Log("I was clicked : " + gameObject.name);
-        GameManager._instance.SelectCardInHand(gameObject);
+        if(!GameManager._instance.IsPlayTurn())
+            GameManager._instance.SelectCardInHand(gameObject);
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
         //Debug.Log("Enter mouse-over : " + gameObject.name);
-        if (GameManager._instance.selectedCard != gameObject)
+        if (!GameManager._instance.IsPlayTurn() && GameManager._instance.selectedCard != gameObject)
             targetColor = Color.green;
     }
     public void OnPointerExit(PointerEventData eventData)
