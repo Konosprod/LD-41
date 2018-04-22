@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.Escape))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            ReturnToMainMenu();
         }
 
         if (isStarted && !isOver)
