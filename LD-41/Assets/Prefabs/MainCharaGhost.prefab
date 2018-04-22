@@ -366,7 +366,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4024498036709522}
   - component: {fileID: 95117975826307214}
-  m_Layer: 0
+  - component: {fileID: 136009955121758120}
+  - component: {fileID: 54198540208912588}
+  m_Layer: 11
   m_Name: MainCharaGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,6 +799,21 @@ Transform:
   m_Father: {fileID: 4779748645286584}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54198540208912588
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1914152932971318}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!95 &95117975826307214
 Animator:
   serializedVersion: 3
@@ -814,6 +831,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!136 &136009955121758120
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1914152932971318}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!137 &137578152546015186
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

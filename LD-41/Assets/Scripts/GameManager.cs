@@ -101,10 +101,7 @@ public class GameManager : MonoBehaviour
     public Text turnScorePanel;
 
     private bool canAct = true;
-    private bool switchingPlane;
-    private int currentPlan = 0;
-    private Vector3 startingPoint;
-    private Vector3 endPoint;
+
 
     void Awake()
     {
@@ -136,7 +133,7 @@ public class GameManager : MonoBehaviour
         {
             CheckWin();
             UpdateScoreText();
-            if (isPlanifTurn && !switchingPlane)
+            if (isPlanifTurn)
             {
                 // The world is stopped, you can plan for your movement and card use
                 timer -= Time.deltaTime;
@@ -155,32 +152,13 @@ public class GameManager : MonoBehaviour
                     float moveHorizon = Input.GetAxis("Horizontal");
                     float moveVertical = Input.GetAxis("Vertical");
 
-                    if(moveVertical > 0)
+                    if(moveVertical != 0)
                     {
-                        Debug.Log(currentPlan);
-                        if (currentPlan >= 1)
-                        {
-                            Debug.Log("Up");
-                            switchingPlane = true;
-                            PlayerAnimator.Play("Jump");
-                            startingPoint = player.transform.position;
-                            endPoint = new Vector3(startingPoint.x, startingPoint.y, startingPoint.z + 3.5f);
-                            currentPlan--;
-                            return;
-                        }
-                    }
-                    else if(moveVertical < 0)
-                    {
-                        if (currentPlan < 3)
-                        {
-                            Debug.Log("Down");
-                            switchingPlane = true;
-                            PlayerAnimator.Play("Jump");
-                            startingPoint = player.transform.position;
-                            endPoint = new Vector3(startingPoint.x, startingPoint.y, startingPoint.z - 3.5f);
-                            currentPlan++;
-                            return;
-                        }
+                        GhostAnimator.SetBool("isMoving", true);
+                        if (currentPlayerGhost.transform.eulerAngles.y == 90)
+                            currentPlayerGhost.transform.position -= (currentPlayerGhost.transform.right * moveVertical * ghostSpeed);
+                        else
+                            currentPlayerGhost.transform.position += (currentPlayerGhost.transform.right * moveVertical * ghostSpeed);
                     }
 
                     if (moveHorizon > 0f)
@@ -196,7 +174,8 @@ public class GameManager : MonoBehaviour
                         currentPlayerGhost.transform.eulerAngles = new Vector3(0, -90f, 0);
                         currentPlayerGhost.transform.position -= (currentPlayerGhost.transform.forward * moveHorizon * ghostSpeed);
                     }
-                    else
+
+                    if(moveVertical == 0 && moveHorizon == 0)
                     {
                         GhostAnimator.SetBool("isMoving", false);
                     }
@@ -594,25 +573,6 @@ public class GameManager : MonoBehaviour
         cardToPlay.Do();
         cardToPlay = null;
         canAct = true;
-    }
-
-    public void BeginSwitchPlane()
-    {
-        StartCoroutine(SwitchingPlane());
-    }
-
-    public void EndOfSwitchPlane()
-    {
-        switchingPlane = false;
-    }
-
-    private IEnumerator SwitchingPlane()
-    {
-        while(PlayerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-        {
-            player.transform.position = Vector3.Lerp(startingPoint, endPoint, PlayerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
-            yield return null;
-        }
     }
 
     public void ReturnToMainMenu()
