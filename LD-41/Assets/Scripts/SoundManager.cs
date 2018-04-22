@@ -65,6 +65,7 @@ public class SoundManager : MonoBehaviour
 
     public void StopMusic()
     {
+        actuallyPlaying = SoundType.None;
         bgmSource.Stop();
     }
 
@@ -97,6 +98,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySFX(SFXType type)
     {
+        sfxSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
         sfxSource.PlayOneShot(sfxClips[type]);
     }
 
