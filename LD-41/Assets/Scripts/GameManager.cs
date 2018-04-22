@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.Escape))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            ReturnToMainMenu();
         }
 
         if (isStarted && !isOver)
@@ -561,6 +561,11 @@ public class GameManager : MonoBehaviour
     public void HitPlayer(int damage)
     {
         player.GetComponent<Health>().TakeDamage(damage);
+    }
+
+    public void HealPlayer()
+    {
+        player.GetComponent<Health>().Heal(4);
     }
 
     public void Lose()
