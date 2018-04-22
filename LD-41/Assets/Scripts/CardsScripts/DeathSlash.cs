@@ -44,6 +44,12 @@ public class DeathSlash : Card {
     public override void Do()
     {
         effectInst = Instantiate(effect, GameManager._instance.GetPlayerPosition() + effectPosOffset, Quaternion.identity);
+
+        if(SoundManager._instance != null)
+        {
+            SoundManager._instance.PlaySFX(SFXType.Punch);
+        }
+
         StartCoroutine(SelfDestroy());
     }
 

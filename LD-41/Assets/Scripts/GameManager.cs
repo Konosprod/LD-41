@@ -123,8 +123,6 @@ public class GameManager : MonoBehaviour
         cardsToPlay = new List<Card>();
         monsters = new List<GameObject>();
 
-        SoundManager._instance.PlayMusic("");
-
         StartGame();
     }
 

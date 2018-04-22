@@ -6,15 +6,14 @@ using UnityEngine.Audio;
 
 public enum SoundType
 {
-    None
+    None,
+    LD41
 };
 
 public enum SFXType
 {
-    WoodHit,
-    Rocket,
-    RocketExplosion
-}
+    Punch
+};
 
 public class SoundManager : MonoBehaviour
 {
