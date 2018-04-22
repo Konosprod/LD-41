@@ -9,7 +9,11 @@ public class Health : MonoBehaviour {
     public float maxHp = 100;
     public float hp;
 
+    public float maxShield = 100;
+    public float shield = 0; 
+
     public Image healthBar;
+    public Image shieldBar;
 
     public bool dead = false;
 
@@ -19,6 +23,7 @@ public class Health : MonoBehaviour {
 	void Start () {
         animator = GetComponent<Animator>();
         hp = maxHp;
+        shield = 0;
 	}
 	
 	// Update is called once per frame
@@ -32,6 +37,17 @@ public class Health : MonoBehaviour {
         healthBar.fillAmount = hp / maxHp;
     }
 
+    private void UpdateShieldBar()
+    {
+        if (shield > 0)
+        {
+            shieldBar.transform.parent.gameObject.SetActive(true);
+            shieldBar.fillAmount = shield / maxShield;
+        }
+        else
+            shieldBar.transform.parent.gameObject.SetActive(false);
+    }
+
     public void Heal(int heal)
     {
         if (hp + heal <= maxHp)
@@ -42,9 +58,34 @@ public class Health : MonoBehaviour {
         UpdateHealthBar();
     }
 
+    public void AddShield(int shield)
+    {
+        if (this.shield + shield <= maxShield)
+        {
+            if (shield == 0)
+                shieldBar.transform.parent.gameObject.SetActive(false);
+
+            this.shield += shield;
+        }
+        else
+            this.shield = maxShield;
+
+        UpdateShieldBar();
+    }
+
     public void TakeDamage(int damage)
     {
-        hp -= damage;
+
+        if(shield - damage < 0)
+        {
+            float left = damage - shield;
+            shield = 0;
+            hp -= left;
+        }
+        else
+        {
+            shield -= damage;
+        }
 
         if(hp<=0)
         {
@@ -74,6 +115,7 @@ public class Health : MonoBehaviour {
         
         }
 
+        UpdateShieldBar();
         UpdateHealthBar();
     }
 

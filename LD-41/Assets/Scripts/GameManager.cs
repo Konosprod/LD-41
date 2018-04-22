@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
     public float ghostSpeed = 0.2f;
     //Foreground of the player healthbar
     public Image healthBar;
+    //Foreground of the player shieldbar
+    public Image shieldBar;
     //Animator for player
     public Animator PlayerAnimator;
     //Animator for the current ghost
@@ -336,6 +338,7 @@ public class GameManager : MonoBehaviour
         // Player initialisation
         player = Instantiate(playerPrefab);
         player.GetComponent<Health>().healthBar = healthBar;
+        player.GetComponent<Health>().shieldBar = shieldBar;
         PlayerAnimator = player.GetComponent<Animator>();
         playerGhosts = new List<GameObject>();
 
@@ -572,7 +575,12 @@ public class GameManager : MonoBehaviour
 
     public void HealPlayer()
     {
-        player.GetComponent<Health>().Heal(4);
+        player.GetComponent<Health>().Heal(20);
+    }
+
+    public void ShieldPlayer()
+    {
+        player.GetComponent<Health>().AddShield(15);
     }
 
     public void Lose()
