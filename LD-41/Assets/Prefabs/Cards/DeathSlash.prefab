@@ -77,9 +77,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d7eb26e9c88c6614bb4082c6d1e5a007, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b27c87dcfb144a47bbaa4536cb6e6b5, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -101,6 +101,9 @@ MonoBehaviour:
   effect: {fileID: 1057828141199528, guid: a440c3701fb90ed4da15ec895f6fc45e, type: 2}
   effectInst: {fileID: 0}
   isTargeting: 0
+  correspondingGhostPos: {x: 0, y: 0, z: 0}
+  effectPosOffset: {x: 0, y: 0, z: 0}
+  animationDo: 
 --- !u!114 &114570653855567808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,14 +130,14 @@ RectTransform:
   m_GameObject: {fileID: 1140290114536714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4412999832089270}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 512, y: 915}
+  m_SizeDelta: {x: 150, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
