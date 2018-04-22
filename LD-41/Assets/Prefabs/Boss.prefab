@@ -98,6 +98,8 @@ GameObject:
   - component: {fileID: 136446260783961512}
   - component: {fileID: 54633610578127468}
   - component: {fileID: 114579625326055012}
+  - component: {fileID: 114279331221267650}
+  - component: {fileID: 114440831168160788}
   m_Layer: 9
   m_Name: Boss
   m_TagString: Untagged
@@ -681,7 +683,7 @@ Transform:
   m_GameObject: {fileID: 1083118069019892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 1.6, z: 1.6}
   m_Children:
   - {fileID: 4911225014996854}
   - {fileID: 4301547871968274}
@@ -909,7 +911,7 @@ Animator:
   m_GameObject: {fileID: 1083118069019892}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 206189b2777413c4b8ea2b30198c859b, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8c7d8c3bf54a2844859351b2b419f63, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -955,6 +957,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114279331221267650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083118069019892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8847120bc98edde4e8f6009d876c2751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  state: 0
+  moveSpeed: 0.75
+  attackRange: 2
+  attackDelay: 2
+  scoreGiven: 150
 --- !u!114 &114391927771497422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -976,6 +995,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114440831168160788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083118069019892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771acc06ef9d28e46b1f73b7d9f6eb8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!114 &114561137449443238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1003,9 +1034,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1680f77931a0da428d754a1fbe71fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 200
+  maxHp: 300
   hp: 0
-  healthBar: {fileID: 0}
+  maxShield: 100
+  shield: 0
+  healthBar: {fileID: 114993895271281204}
+  shieldBar: {fileID: 0}
   dead: 0
 --- !u!114 &114842684814513100
 MonoBehaviour:
