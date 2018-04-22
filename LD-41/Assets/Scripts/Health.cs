@@ -39,13 +39,18 @@ public class Health : MonoBehaviour {
 
     private void UpdateShieldBar()
     {
-        if (shield > 0)
+        if (shieldBar)
         {
-            shieldBar.transform.parent.gameObject.SetActive(true);
-            shieldBar.fillAmount = shield / maxShield;
+            if (shield > 0)
+            {
+                shieldBar.transform.parent.gameObject.SetActive(true);
+                shieldBar.fillAmount = shield / maxShield;
+            }
+            else
+            {
+                shieldBar.transform.parent.gameObject.SetActive(false);
+            }
         }
-        else
-            shieldBar.transform.parent.gameObject.SetActive(false);
     }
 
     public void Heal(int heal)
