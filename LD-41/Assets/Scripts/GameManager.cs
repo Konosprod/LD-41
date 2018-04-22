@@ -320,6 +320,11 @@ public class GameManager : MonoBehaviour
         gameOver = false;
         isPlanifTurn = true;
 
+        if(SoundManager._instance != null)
+        {
+            SoundManager._instance.PlayMusic(SoundType.LD41);
+        }
+
         // Get the FollowCamera component
         followCamera = Camera.main.GetComponent<FollowCamera>();
 
@@ -573,6 +578,10 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        if(SoundManager._instance != null)
+        {
+            SoundManager._instance.StopMusic();
+        }
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 

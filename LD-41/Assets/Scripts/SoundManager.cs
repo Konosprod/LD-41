@@ -63,6 +63,11 @@ public class SoundManager : MonoBehaviour
 
     }
 
+    public void StopMusic()
+    {
+        bgmSource.Stop();
+    }
+
     public void PlayMusic(SoundType type, bool forceReplay = false)
     {
         if (forceReplay && type == actuallyPlaying)
