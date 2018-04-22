@@ -66,6 +66,8 @@ public class IAMonster : MonoBehaviour
 
                 if (!health.dead)
                 {
+                    // Conditon that makes monsters incapable of hitting you if they are above / below you. You can multiply Mathf.Abs(diff.x) to make the window of no-attack narrower
+                    // if (Mathf.Abs(diff.z) > Mathf.Abs(diff.x))
                     if (distToPlayer < attackRange)
                     {
                         // Attack the player
@@ -81,7 +83,33 @@ public class IAMonster : MonoBehaviour
                         // Move towards the player
                         //Debug.Log("Distance : " + distToPlayer + ", hp : " + health.hp);
                         animator.SetBool("isMoving", true);
-                        transform.position += (transform.forward * moveSpeed * Time.deltaTime);
+
+                        Vector3 forwardMove = (transform.forward * moveSpeed * Time.deltaTime);
+                        Vector3 sideMove = Vector3.zero;
+
+                        if (transform.eulerAngles.y == 90)
+                        {
+                            sideMove = (-transform.right * moveSpeed * Time.deltaTime) * Mathf.Sign(diff.z);
+                        }
+                        else
+                        {
+                            sideMove = (transform.right * moveSpeed * Time.deltaTime) * Mathf.Sign(diff.z);
+                        }
+
+                        /*Debug.Log("diff : x= " + diff.x + ", y= " + diff.y + ", z= " + diff.z);
+                        Debug.Log("forwardMove : x= " + forwardMove.x + ", y= " + forwardMove.y + ", z= " + forwardMove.z);
+                        Debug.Log("sideMove : x= " + sideMove.x + ", y= " + sideMove.y + ", z= " + sideMove.z);*/
+
+                        if (Mathf.Abs(diff.z) < 0.2f)
+                        {
+                            transform.position += forwardMove;
+                        }
+                        else
+                        {
+                            Vector3 combinedMovement = (forwardMove * Mathf.Abs(diff.x)) / (Mathf.Abs(diff.x) + Mathf.Abs(diff.z)) + (sideMove * Mathf.Abs(diff.z)) / (Mathf.Abs(diff.z) + Mathf.Abs(diff.x));
+                            //Debug.Log("combinedMovement : x= " + combinedMovement.x + ", y= " + combinedMovement.y + ", z= " + combinedMovement.z);
+                            transform.position += combinedMovement;
+                        }
                     }
                 }
             }

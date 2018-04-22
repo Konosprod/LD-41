@@ -498,6 +498,8 @@ public class GameManager : MonoBehaviour
 
     public Vector3 GetCurrentGhostPosition()
     {
+        if (currentPlayerGhost == null)
+            Debug.LogError("Wat");
         return currentPlayerGhost.transform.position;
     }
 
