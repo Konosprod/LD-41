@@ -55,8 +55,7 @@ public class Aegis : Card {
 
         if(SoundManager._instance != null)
         {
-            Debug.Log("Play shield sound");
-            //SoundManager._instance.PlaySFX(SFXType.Punch);
+            SoundManager._instance.PlaySFX(SFXType.Shield);
         }
 
         StartCoroutine(SelfDestroy());
