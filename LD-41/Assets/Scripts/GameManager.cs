@@ -149,6 +149,9 @@ public class GameManager : MonoBehaviour
                 {
                     // Grab the inputs
                     float moveHorizon = Input.GetAxis("Horizontal");
+                    float moveVertical = Input.GetAxis("Vertical");
+                    //Debug.Log(moveVertical);
+
                     if (moveHorizon > 0f)
                     {
                         GhostAnimator.SetBool("isMoving", true);
@@ -166,6 +169,8 @@ public class GameManager : MonoBehaviour
                     {
                         GhostAnimator.SetBool("isMoving", false);
                     }
+
+
 
                     if (cardsInHand.Count >= 1 && Input.GetKeyDown(KeyCode.Alpha1))
                     {
