@@ -6,7 +6,7 @@ public class HealCard : Card {
 
 	// Use this for initialization
 	void Start () {
-        animationDo = "Heal";
+        animationDo = "Healing";
 	}    
 
     // Update is called once per frame
@@ -27,14 +27,18 @@ public class HealCard : Card {
             if (mousePos.x > GameManager._instance.GetCurrentGhostPosition().x)
             {
                 //Debug.Log("To the right");
-                effectPosOffset = new Vector3(2f, 0.5f, 0f);
+                
+                effectPosOffset = new Vector3(0f, 0.5f, 0f);
                 effectPos += effectPosOffset;
+                
             }
             else
             {
                 //Debug.Log("To the left");
-                effectPosOffset = new Vector3(-2f, 0.5f, 0f);
+                
+                effectPosOffset = new Vector3(0f, 0.5f, 0f);
                 effectPos += effectPosOffset;
+                
             }
 
             effectInst.transform.position = effectPos;
@@ -44,6 +48,8 @@ public class HealCard : Card {
     public override void Do()
     {
         effectInst = Instantiate(effect, GameManager._instance.GetPlayerPosition() + effectPosOffset, Quaternion.identity);
+
+        GameManager._instance.HealPlayer();
 
         if(SoundManager._instance != null)
         {

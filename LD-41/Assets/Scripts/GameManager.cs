@@ -561,6 +561,11 @@ public class GameManager : MonoBehaviour
         player.GetComponent<Health>().TakeDamage(damage);
     }
 
+    public void HealPlayer()
+    {
+        player.GetComponent<Health>().Heal(4);
+    }
+
     public void Lose()
     {
         gameOver = true;

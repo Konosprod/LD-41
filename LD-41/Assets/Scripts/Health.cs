@@ -32,6 +32,16 @@ public class Health : MonoBehaviour {
         healthBar.fillAmount = hp / maxHp;
     }
 
+    public void Heal(int heal)
+    {
+        if (hp + heal <= maxHp)
+            hp += heal;
+        else
+            hp = maxHp;
+
+        UpdateHealthBar();
+    }
+
     public void TakeDamage(int damage)
     {
         hp -= damage;

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224363837564740848}
   - component: {fileID: 222728826550566336}
   - component: {fileID: 114246718496246196}
-  - component: {fileID: 114272372473379944}
+  - component: {fileID: 114513909140115486}
   m_Layer: 5
   m_Name: Heal
   m_TagString: Untagged
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4224550754274278}
-  - component: {fileID: 114703913226378356}
+  - component: {fileID: 114630056938107428}
   m_Layer: 0
   m_Name: HealCard
   m_TagString: Untagged
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114272372473379944
+--- !u!114 &114513909140115486
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3516dddf058f847962c0f7fb6e9f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 114703913226378356}
---- !u!114 &114703913226378356
+  card: {fileID: 114630056938107428}
+--- !u!114 &114630056938107428
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -105,12 +105,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1823346920056660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76516335edb14b0409d259daee6817bc, type: 3}
+  m_Script: {fileID: 11500000, guid: a90a2b803e8b071408ea18c91a8e9e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetDirection: {x: 0, y: 0, z: 0}
   targetCharacter: {fileID: 0}
-  effect: {fileID: 1752632668860976, guid: 51e0b6520a1dca542bbe460b3e092ee8, type: 2}
+  effect: {fileID: 1651568586550842, guid: 06c13e0ecf5579e4eb5173680c6a3dbb, type: 2}
   effectInst: {fileID: 0}
   isTargeting: 0
   correspondingGhostPos: {x: 0, y: 0, z: 0}
