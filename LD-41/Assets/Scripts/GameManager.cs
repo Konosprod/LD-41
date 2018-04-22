@@ -294,6 +294,7 @@ public class GameManager : MonoBehaviour
                         else
                         {
                             // Nothing to do if the current card is the empty card
+                            PlayerAnimator.SetBool("isMoving", false);
                             cardToPlay = null;
                         }
                     }
