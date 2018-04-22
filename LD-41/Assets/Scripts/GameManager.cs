@@ -217,7 +217,7 @@ public class GameManager : MonoBehaviour
                         Card cardEffect = selectedCard.GetComponentInChildren<Card>();
                         cardEffect.isTargeting = false;
                         cardEffect.correspondingGhostPos = currentPlayerGhost.transform.position;
-                        cardEffect.correspondingGhostRot = currentPlayerGhost.transform.localEulerAngles;
+                        //cardEffect.correspondingGhostRot = cardEffect.eff
                         GameObject cardEffectGO = cardEffect.gameObject;
                         cardEffectGO.transform.parent = player.transform;
                         cardsToPlay.Add(cardEffect);
