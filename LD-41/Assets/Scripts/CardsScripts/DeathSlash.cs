@@ -46,8 +46,16 @@ public class DeathSlash : Card {
     public override void Do()
     {
         effectInst = Instantiate(effect, GameManager._instance.GetPlayerPosition() + effectPosOffset, Quaternion.identity);
+        effectInst.GetComponent<MeshRenderer>().enabled = false;
+        
+        if (effectPosOffset.x < 0f)
+        {
+            effectInst.transform.Rotate(Vector3.up, 180f);
+        }
 
-        if(SoundManager._instance != null)
+        effectInst.GetComponent<ParticleSystem>().Play();
+
+        if (SoundManager._instance != null)
         {
             SoundManager._instance.PlaySFX(SFXType.Punch);
         }
