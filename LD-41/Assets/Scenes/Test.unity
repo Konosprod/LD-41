@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deckComposition:
-  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
   deck: []
 --- !u!4 &276146056 stripped
 Transform:
@@ -4968,7 +4968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 0f000000
+  waves: 01000000
   nbMobsPerWaves: 01000000
   monsterPrefabs:
   - {fileID: 1083118069019892, guid: 8c721da4bb421bb4bb9e4fbc3500eaa7, type: 2}

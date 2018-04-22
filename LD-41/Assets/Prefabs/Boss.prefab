@@ -1107,7 +1107,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 0.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.84, z: 0}
 --- !u!137 &137028031925863810
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1230,7 +1230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.021700002, y: 2.7475}
+  m_AnchoredPosition: {x: 0.021700002, y: 1.57}
   m_SizeDelta: {x: 2.0334, y: 0.255}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224276833980859528

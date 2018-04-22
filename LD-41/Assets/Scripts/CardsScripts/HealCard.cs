@@ -50,6 +50,14 @@ public class HealCard : Card {
     public override void Do()
     {
         effectInst = Instantiate(effect, GameManager._instance.GetPlayerPosition() + effectPosOffset, Quaternion.identity);
+        effectInst.GetComponent<MeshRenderer>().enabled = false;
+
+        if (effectPosOffset.x < 0f)
+        {
+            effectInst.transform.Rotate(Vector3.up, 180f);
+        }
+
+        effectInst.GetComponent<ParticleSystem>().Play();
 
         GameManager._instance.HealPlayer();
 
