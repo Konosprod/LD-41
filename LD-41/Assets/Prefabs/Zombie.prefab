@@ -901,7 +901,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!95 &95229749212821570
 Animator:
@@ -971,7 +971,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 45
   hp: 0
+  maxShield: 100
+  shield: 0
   healthBar: {fileID: 114677125368014426}
+  shieldBar: {fileID: 0}
   dead: 0
 --- !u!114 &114539262746445606
 MonoBehaviour:

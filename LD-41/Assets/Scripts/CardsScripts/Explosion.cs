@@ -48,6 +48,7 @@ public class Explosion : Card
     public override void Do()
     {
         effectInst = Instantiate(effect, GameManager._instance.GetPlayerPosition() + effectPosOffset, Quaternion.identity);
+        effectInst.GetComponent<MeshRenderer>().enabled = false;
 
         effectInst.GetComponent<ParticleSystem>().Play();
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
@@ -246,7 +247,7 @@ public class GameManager : MonoBehaviour
 
 
                     // On left-click we validate the selected card play
-                    if (selectedCard != null && Input.GetMouseButtonDown(0))
+                    if (selectedCard != null && !EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0))
                     {
                         Card cardEffect = selectedCard.GetComponentInChildren<Card>();
                         cardEffect.isTargeting = false;
@@ -265,6 +266,12 @@ public class GameManager : MonoBehaviour
                         GhostAnimator.SetBool("isMoving", false);
                         GhostAnimator = currentPlayerGhost.GetComponent<Animator>();
                         followCamera.SetTarget(currentPlayerGhost);
+                    }
+
+                    if (selectedCard != null && Input.GetMouseButtonDown(1))
+                    {
+                        selectedCard.GetComponent<CardInHand>().DeselectCard();
+                        selectedCard = null;
                     }
 
                     // On pressing space we add a movement
