@@ -28,6 +28,11 @@ public class Health : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(transform.position.y < -100f)
+        {
+            GameManager._instance.RemoveMonster(gameObject);
+            Destroy(gameObject);
+        }
         //UpdateHealthBar();
     }
 
