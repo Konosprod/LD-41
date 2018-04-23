@@ -286,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDone: 0
   waves: 0600000009000000
-  nbMobsPerWaves: 0200000002000000
+  nbMobsPerWaves: 0300000003000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!23 &29155880
@@ -295,7 +295,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 29155878}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDone: 0
   waves: 01000000060000000c000000
-  nbMobsPerWaves: 020000000200000002000000
+  nbMobsPerWaves: 030000000300000003000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!23 &149202312
@@ -561,7 +561,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 149202310}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1852,7 +1852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDone: 0
   waves: 0600000009000000
-  nbMobsPerWaves: 0200000002000000
+  nbMobsPerWaves: 0300000003000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!23 &809693585
@@ -1861,7 +1861,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 809693583}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2738,7 +2738,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1156323180}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2799,7 +2799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDone: 0
   waves: 01000000060000000c000000
-  nbMobsPerWaves: 020000000200000002000000
+  nbMobsPerWaves: 030000000300000003000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!1001 &1157091047
@@ -5058,7 +5058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDone: 0
   waves: 0f000000
-  nbMobsPerWaves: 01000000
+  nbMobsPerWaves: 02000000
   monsterPrefabs:
   - {fileID: 1083118069019892, guid: 8c721da4bb421bb4bb9e4fbc3500eaa7, type: 2}
 --- !u!23 &2058522115
@@ -5067,7 +5067,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2058522113}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5376,7 +5376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDone: 0
   waves: 040000000b000000
-  nbMobsPerWaves: 0200000003000000
+  nbMobsPerWaves: 0300000004000000
   monsterPrefabs:
   - {fileID: 1370185579980416, guid: bf46cd358e6b32d41921ccccc678ccf6, type: 2}
 --- !u!23 &2132574852
@@ -5385,7 +5385,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2132574850}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
