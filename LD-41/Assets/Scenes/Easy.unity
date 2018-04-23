@@ -286,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDone: 0
   waves: 0100000003000000
-  nbMobsPerWaves: 0500000004000000
+  nbMobsPerWaves: 0300000003000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!23 &29155880
@@ -843,9 +843,6 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1156323184}
   - {fileID: 149202311}
-  - {fileID: 2132574851}
-  - {fileID: 29155879}
-  - {fileID: 809693584}
   - {fileID: 2058522114}
   monstersParent: {fileID: 2064918334}
   panelEndOfGame: {fileID: 1465411749}
@@ -854,10 +851,9 @@ MonoBehaviour:
   difficulty: Easy
   pickupPrefab: {fileID: 1076225816579748, guid: eccbdb60bb0dec94da89a9c2655ad935,
     type: 2}
-  basePickupSpawnChance: 10
+  basePickupSpawnChance: 5
   pickupCards:
-  - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
-  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  - {fileID: 1637261786954916, guid: dd55d895a320c5144bd29528ad0c70f4, type: 2}
   pickupPointerPrefab: {fileID: 1832716920226706, guid: 571dac074da313b469b206c465cf205b,
     type: 2}
   canvas: {fileID: 1517924676}
@@ -890,6 +886,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deckComposition:
+  - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
+  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
+  - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
+  - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
+  - {fileID: 1637139845261144, guid: b609e43b979d4db469b67fd833f2fff1, type: 2}
+  - {fileID: 1637139845261144, guid: b609e43b979d4db469b67fd833f2fff1, type: 2}
+  - {fileID: 1637139845261144, guid: b609e43b979d4db469b67fd833f2fff1, type: 2}
+  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
+  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  - {fileID: 1637139845261144, guid: b609e43b979d4db469b67fd833f2fff1, type: 2}
   - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
   deck: []
 --- !u!4 &276146056 stripped
@@ -1589,7 +1604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1837,8 +1852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 0100000003000000
-  nbMobsPerWaves: 0500000005000000
+  waves: 0200000008000000
+  nbMobsPerWaves: 0300000005000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!23 &809693585
@@ -2784,7 +2799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 010000000200000003000000
+  waves: 010000000400000007000000
   nbMobsPerWaves: 020000000200000002000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
@@ -5361,8 +5376,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 0100000003000000
-  nbMobsPerWaves: 0200000004000000
+  waves: 0500000007000000
+  nbMobsPerWaves: 0100000003000000
   monsterPrefabs:
   - {fileID: 1370185579980416, guid: bf46cd358e6b32d41921ccccc678ccf6, type: 2}
 --- !u!23 &2132574852

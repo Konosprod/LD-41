@@ -285,8 +285,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 0100000003000000
-  nbMobsPerWaves: 0500000004000000
+  waves: 0600000009000000
+  nbMobsPerWaves: 0200000002000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!23 &29155880
@@ -295,7 +295,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 29155878}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -337,7 +337,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 29155878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.74, y: 1, z: 5.45}
+  m_LocalPosition: {x: 1.98, y: 1, z: 6.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -551,8 +551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 010000000300000005000000
-  nbMobsPerWaves: 030000000300000003000000
+  waves: 01000000060000000c000000
+  nbMobsPerWaves: 020000000200000002000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!23 &149202312
@@ -561,7 +561,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 149202310}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -830,12 +830,7 @@ MonoBehaviour:
   PlayerAnimator: {fileID: 0}
   GhostAnimator: {fileID: 0}
   playerMoveSpeed: 0.07
-  cards:
-  - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
-  - {fileID: 1637139845261144, guid: b609e43b979d4db469b67fd833f2fff1, type: 2}
-  - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
-  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
-  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  cards: []
   nbCards: 5
   handPanel: {fileID: 703381554}
   selectedCard: {fileID: 0}
@@ -845,7 +840,6 @@ MonoBehaviour:
   - {fileID: 149202311}
   - {fileID: 2132574851}
   - {fileID: 29155879}
-  - {fileID: 809693584}
   - {fileID: 2058522114}
   monstersParent: {fileID: 2064918334}
   panelEndOfGame: {fileID: 1465411749}
@@ -856,8 +850,9 @@ MonoBehaviour:
     type: 2}
   basePickupSpawnChance: 10
   pickupCards:
+  - {fileID: 1637261786954916, guid: dd55d895a320c5144bd29528ad0c70f4, type: 2}
   - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
-  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
   pickupPointerPrefab: {fileID: 1832716920226706, guid: 571dac074da313b469b206c465cf205b,
     type: 2}
   canvas: {fileID: 1517924676}
@@ -890,7 +885,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deckComposition:
+  - {fileID: 1637139845261144, guid: b609e43b979d4db469b67fd833f2fff1, type: 2}
+  - {fileID: 1637139845261144, guid: b609e43b979d4db469b67fd833f2fff1, type: 2}
+  - {fileID: 1637139845261144, guid: b609e43b979d4db469b67fd833f2fff1, type: 2}
+  - {fileID: 1637139845261144, guid: b609e43b979d4db469b67fd833f2fff1, type: 2}
+  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1140290114536714, guid: 73016f3001600c1448c5e4a5acfdf571, type: 2}
+  - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
+  - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
+  - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
+  - {fileID: 1637139845261144, guid: 82d51123d79fa8a43a0442b47f2b41ec, type: 2}
   - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
+  - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
+  - {fileID: 1637261786954916, guid: dd55d895a320c5144bd29528ad0c70f4, type: 2}
   deck: []
 --- !u!4 &276146056 stripped
 Transform:
@@ -1589,7 +1603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1725,7 +1739,7 @@ BoxCollider:
   m_GameObject: {fileID: 722206196}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1837,8 +1851,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 0100000003000000
-  nbMobsPerWaves: 0500000005000000
+  waves: 0600000009000000
+  nbMobsPerWaves: 0200000002000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
 --- !u!23 &809693585
@@ -1847,7 +1861,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 809693583}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2724,7 +2738,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1156323180}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2784,7 +2798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 010000000200000003000000
+  waves: 01000000060000000c000000
   nbMobsPerWaves: 020000000200000002000000
   monsterPrefabs:
   - {fileID: 1537969831439998, guid: 23be98cf9dbd9fd4aaff0c988ec0e85b, type: 2}
@@ -3603,7 +3617,7 @@ BoxCollider:
   m_GameObject: {fileID: 1481006449}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -4915,7 +4929,7 @@ BoxCollider:
   m_GameObject: {fileID: 1973527082}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 19, y: 29, z: 17}
   m_Center: {x: 0.000015258789, y: 14.5, z: 0.00012207031}
@@ -4939,7 +4953,7 @@ BoxCollider:
   m_GameObject: {fileID: 2042733334}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5053,7 +5067,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2058522113}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5361,8 +5375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  waves: 0100000003000000
-  nbMobsPerWaves: 0200000004000000
+  waves: 040000000b000000
+  nbMobsPerWaves: 0200000003000000
   monsterPrefabs:
   - {fileID: 1370185579980416, guid: bf46cd358e6b32d41921ccccc678ccf6, type: 2}
 --- !u!23 &2132574852
@@ -5371,7 +5385,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2132574850}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
