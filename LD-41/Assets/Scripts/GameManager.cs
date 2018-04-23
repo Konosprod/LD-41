@@ -111,8 +111,14 @@ public class GameManager : MonoBehaviour
     [Header("Pickup")]
     // Pickup prefab
     public GameObject pickupPrefab;
+    // Base percent chance of spawning a pickup each turn
+    public int basePickupSpawnChance = 10;
     // List of cards eligible as pickups
     public List<GameObject> pickupCards;
+    // PickupPointer prefab
+    public GameObject pickupPointerPrefab;
+    // Transform of the canvas for parenting UI prefab
+    public Transform canvas;
     // Level bounds
     public Transform cornerTopLeft;
     public Transform cornerTopRight;
@@ -400,7 +406,7 @@ public class GameManager : MonoBehaviour
         emptyCardPlayedThisTurn = false;
 
         // Spawn a pickup
-        if (Random.Range(0, 100) < (10 + (turn / 2)))
+        if (Random.Range(0, 100) < (basePickupSpawnChance + (turn / 2)))
         {
             SpawnPickup();
         }
@@ -535,6 +541,9 @@ public class GameManager : MonoBehaviour
 
         GameObject card = pickupCards[Random.Range(0, pickupCards.Count)];
         GameObject pickup = Instantiate(pickupPrefab, new Vector3(posX, posY, posZ), Quaternion.identity);
+        GameObject pickupPointer = Instantiate(pickupPointerPrefab, canvas);
+        pickupPointer.GetComponent<PointToPickup>().target = pickup;
+        pickup.GetComponent<PickupItem>().pointer = pickupPointer;
         pickup.GetComponent<PickupItem>().cardPrefab = card;
     }
 

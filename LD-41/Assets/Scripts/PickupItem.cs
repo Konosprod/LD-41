@@ -11,6 +11,7 @@ public class PickupItem : MonoBehaviour {
     // The card that the player gets on pickup
     public GameObject cardPrefab;
 
+    public GameObject pointer;
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,6 +24,12 @@ public class PickupItem : MonoBehaviour {
             Debug.LogError("Pickups shouldn't trigger when anything other the player");
 
         GameManager._instance.PickupCard(this);
+
+        if (pointer != null)
+        {
+            Destroy(pointer);
+        }
+
         Destroy(gameObject);
     }
 }

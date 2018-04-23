@@ -853,9 +853,13 @@ MonoBehaviour:
   turnScorePanel: {fileID: 2062027180}
   pickupPrefab: {fileID: 1076225816579748, guid: eccbdb60bb0dec94da89a9c2655ad935,
     type: 2}
+  basePickupSpawnChance: 25
   pickupCards:
   - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
   - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  pickupPointerPrefab: {fileID: 1832716920226706, guid: 571dac074da313b469b206c465cf205b,
+    type: 2}
+  canvas: {fileID: 1517924676}
   cornerTopLeft: {fileID: 1871788146}
   cornerTopRight: {fileID: 3264557}
   cornerBottomLeft: {fileID: 566113944}
