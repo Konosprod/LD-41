@@ -66,7 +66,7 @@ public class DeathSlashX2 : Card {
 
         if (SoundManager._instance != null)
         {
-            SoundManager._instance.PlaySFX(SFXType.Punch);
+            SoundManager._instance.PlaySFX(SFXType.DDS);
         }
 
         StartCoroutine(SelfDestroy());
