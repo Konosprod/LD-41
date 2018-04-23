@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
 
     private bool canAct = true;
 
+    public string difficulty;
 
 
     [Header("Pickup")]
@@ -674,6 +675,6 @@ public class GameManager : MonoBehaviour
 
     public void Retry()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Test");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(difficulty);
     }
 }
