@@ -24,7 +24,7 @@ public class MonsterSpawnPoint : MonoBehaviour {
             for (int i = 0; i < nbMobs; i++)
             {
                 GameObject prefab = monsterPrefabs[Random.Range(0, monsterPrefabs.Count)]; // We take a random prefab among those offered for the spawn (allows reskin of mobs for variety)
-                Vector3 spawnPos = new Vector3(transform.position.x + Random.Range(-4f, 4f), transform.position.y, transform.position.z);
+                Vector3 spawnPos = new Vector3(transform.position.x + Random.Range(-4f, 4f), transform.position.y, transform.position.z + Random.Range(-4f, 4f));
                 bool spawned = false;
                 GameObject monster = null;
                 while (!spawned)
