@@ -855,8 +855,7 @@ MonoBehaviour:
     type: 2}
   basePickupSpawnChance: 25
   pickupCards:
-  - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
-  - {fileID: 1637139845261144, guid: c4e8cc8971370404a9a0f72d57305330, type: 2}
+  - {fileID: 1637261786954916, guid: dd55d895a320c5144bd29528ad0c70f4, type: 2}
   pickupPointerPrefab: {fileID: 1832716920226706, guid: 571dac074da313b469b206c465cf205b,
     type: 2}
   canvas: {fileID: 1517924676}
