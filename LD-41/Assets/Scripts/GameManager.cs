@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     //Animator for the current ghost
     public Animator GhostAnimator;
     // Player movement speed (distance per frame)
-    private float playerMoveSpeed = 0.2f;
+    public float playerMoveSpeed = 0.2f;
 
 
     // Cards

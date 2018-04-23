@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -824,11 +824,12 @@ MonoBehaviour:
     type: 2}
   playerGhostPrefab: {fileID: 1914152932971318, guid: 9d0c21c010ed46141bb718a144231f64,
     type: 2}
-  ghostSpeed: 0.2
+  ghostSpeed: 0.1
   healthBar: {fileID: 199298156}
   shieldBar: {fileID: 156818250}
   PlayerAnimator: {fileID: 0}
   GhostAnimator: {fileID: 0}
+  playerMoveSpeed: 0.07
   cards:
   - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
   - {fileID: 1637139845261144, guid: b609e43b979d4db469b67fd833f2fff1, type: 2}
