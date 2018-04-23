@@ -80,44 +80,46 @@ public class Health : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
-
-        if(shield - damage < 0)
+        if (GameManager._instance.IsPlayTurn())
         {
-            float left = damage - shield;
-            shield = 0;
-            hp -= left;
-        }
-        else
-        {
-            shield -= damage;
-        }
-
-        if(hp<=0)
-        {
-            hp = 0;
-            dead = true;
-            if(gameObject.layer == 9) // Monster
+            if (shield - damage < 0)
             {
-                animator.SetBool("isDead", true);
-                gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                gameObject.GetComponent<Collider>().enabled = false;
-                GameManager._instance.GainScore(gameObject.GetComponent<IAMonster>().scoreGiven);
-                GameManager._instance.RemoveMonster(gameObject);
-                StartCoroutine(WaitForFrameToFinish());
+                float left = damage - shield;
+                shield = 0;
+                hp -= left;
             }
-
-            if(gameObject.layer == 8)
-            {
-                GameManager._instance.Lose();
-            }
-        }
-        else
-        {
-            if (gameObject.layer == 9)
-                animator.Play("ZombieReactionHit");
             else
-                animator.Play("Reaction");
-        
+            {
+                shield -= damage;
+            }
+
+            if (hp <= 0)
+            {
+                hp = 0;
+                dead = true;
+                if (gameObject.layer == 9) // Monster
+                {
+                    animator.SetBool("isDead", true);
+                    gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    gameObject.GetComponent<Collider>().enabled = false;
+                    GameManager._instance.GainScore(gameObject.GetComponent<IAMonster>().scoreGiven);
+                    GameManager._instance.RemoveMonster(gameObject);
+                    StartCoroutine(WaitForFrameToFinish());
+                }
+
+                if (gameObject.layer == 8)
+                {
+                    GameManager._instance.Lose();
+                }
+            }
+            else
+            {
+                if (gameObject.layer == 9)
+                    animator.Play("ZombieReactionHit");
+                else
+                    animator.Play("Reaction");
+
+            }
         }
 
         UpdateShieldBar();
@@ -138,7 +140,7 @@ public class Health : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        if(GameManager._instance.IsPlayTurn() && gameObject.layer == 9) // 9 = monster
+        if(gameObject.layer == 9) // 9 = monster
         {
             TakeDamage(other.gameObject.GetComponent<Damage>().damage);
         }
