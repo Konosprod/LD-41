@@ -829,7 +829,7 @@ MonoBehaviour:
   shieldBar: {fileID: 156818250}
   PlayerAnimator: {fileID: 0}
   GhostAnimator: {fileID: 0}
-  playerMoveSpeed: 0.07
+  playerMoveSpeed: 0.12
   cards:
   - {fileID: 1637139845261144, guid: bb15ae9275229a14494667fb74727c0a, type: 2}
   - {fileID: 1637139845261144, guid: b609e43b979d4db469b67fd833f2fff1, type: 2}

@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
     public Animator GhostAnimator;
     // Player movement speed (distance per frame)
     public float playerMoveSpeed = 0.2f;
+    // Position for the next card
+    Vector3 nextCardPos = Vector3.zero;
 
 
     // Cards
@@ -310,6 +312,7 @@ public class GameManager : MonoBehaviour
                         // Calculate the time it takes to move there
                         timeToDest = Vector3.Distance(player.transform.position, cardToPlay.correspondingGhostPos) * (1 / playerMoveSpeed) * Time.deltaTime;
                         timerPlayCardMove = 0f;
+                        nextCardPos = player.transform.position;
                         // Debug.Log("Dist to goal : " + Vector3.Distance(player.transform.position, cardToPlay.correspondingGhostPos) + ", time : " + Vector3.Distance(player.transform.position, cardToPlay.correspondingGhostPos) * (1/playerMoveSpeed) * Time.deltaTime);
                     }
                 }
@@ -349,9 +352,9 @@ public class GameManager : MonoBehaviour
                             player.transform.localEulerAngles = new Vector3(0, 90f, 0);
    
                     
-                        player.transform.position = Vector3.Lerp(player.transform.position, cardToPlay.correspondingGhostPos, (timerPlayCardMove / timeToDest) * playerMoveSpeed);
+                        player.transform.position = Vector3.Lerp(nextCardPos, cardToPlay.correspondingGhostPos, (timerPlayCardMove / timeToDest));
 
-                        if(Vector3.Distance(cardToPlay.correspondingGhostPos, player.transform.position) < 0.2)
+                        if(Vector3.Distance(cardToPlay.correspondingGhostPos, player.transform.position) < 0.2f)
                         {
                             PlayerAnimator.SetBool("isMoving", false);
                         }
