@@ -15,7 +15,8 @@ public enum SFXType
     Punch,
     Heal,
     Shield,
-    Explosion
+    Explosion,
+    HHK
 };
 
 public class SoundManager : MonoBehaviour

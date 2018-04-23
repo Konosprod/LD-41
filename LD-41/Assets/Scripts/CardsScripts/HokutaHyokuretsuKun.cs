@@ -52,7 +52,7 @@ public class HokutaHyokuretsuKun : Card {
 
         if (SoundManager._instance != null)
         {
-            SoundManager._instance.PlaySFX(SFXType.Punch);
+            SoundManager._instance.PlaySFX(SFXType.HHK);
         }
 
         StartCoroutine(SelfDestroy());
